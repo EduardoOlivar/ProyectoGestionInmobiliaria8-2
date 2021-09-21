@@ -9,11 +9,13 @@ public class Administrador {
     private int idAdministrador;
 
 
+
     public Administrador() {
         listaEdificio = new ArrayList();
         edificiosId = new HashMap();
         edificiosNombre = new HashMap();
         idAdministrador = 0;
+
     }
     //metodo privado que agregarEdificios,verifica si ya existe el edificio. si no existe los agrega al mapa edficiosId y listaEdificios
     private boolean agregarEdificios(Edificio edificio){
@@ -167,6 +169,8 @@ public class Administrador {
         listaEdificio.get(i).mostrarDptosPorOrientacion(orientacion);
       }
     }
+
+
     
     //getter
     public ArrayList<Edificio> getListaEdificio() {return listaEdificio;}

@@ -1,20 +1,17 @@
 package gestioninmobilaria3;
 import java.io.*;
+import javax.swing.JFrame;
 
-public class Menu{
+public class Menu extends JFrame{
   Administrador administrador = new Administrador();
-  AgregarDatos agregarDatos = new AgregarDatos();
-  MostrarDatos mostrarDatos = new MostrarDatos();
-  ModificarPropiedad modificarPropiedad = new ModificarPropiedad();
-  EliminarPropiedad eliminarPropiedad = new EliminarPropiedad();
-  LlenadoDeDatos llenadoDeDatos = new LlenadoDeDatos();
+  Datos gestionDatos = new Datos();
   GenerarReporte generarReporte = new GenerarReporte();
   public void menuPrincipal(int opc)throws IOException{
     BufferedReader lectura = new BufferedReader(new InputStreamReader( System.in ));
     boolean mostrarMenu = true;
     int opcion;
-    llenadoDeDatos.cargarEdificios(administrador);
-    llenadoDeDatos.cargarDepartamentos(administrador);    
+    gestionDatos.cargarEdificios(administrador);
+    gestionDatos.cargarDepartamentos(administrador);    
         
     System.out.println("Bienvenido, ingrese la opcion que desee utilizar");
         
@@ -26,37 +23,36 @@ public class Menu{
       System.out.println("(5)  Eliminar Edificio");
       System.out.println("(6)  Buscar Departamento");
       System.out.println("(7)  Modificar nombre de Edificio");
-      System.out.println("(8) Mostrar Departamentos por rango de precios");
-      System.out.println("(9) Mostrar Departamentos por Orientacion");
-      System.out.println("(10) Generar reporte de Edificios y Departamentos");
+      System.out.println("(8)  Mostrar Departamentos por rango de precios");
+      System.out.println("(9)  Mostrar Departamentos por Orientacion");
       System.out.println("presione x para salir");
             
       String eleccion = lectura.readLine();
             
       switch(eleccion){
         case "1":
-          agregarDatos.agregarEdificio(administrador);
+          gestionDatos.agregarEdificio(administrador);
           break;
         case "2":
-          agregarDatos.agregarDepartamento(administrador);
+          gestionDatos.agregarDepartamento(administrador);
           break;
         case "3":
-          mostrarDatos.mostrarListadoDeEdifcios(administrador);
+          gestionDatos.mostrarListadoDeEdifcios(administrador);
           break;
         case "4":
-          mostrarDatos.mostrarTodosLosDepartamentos(administrador);   
+          gestionDatos.mostrarTodosLosDepartamentos(administrador);   
           break;
         case "5":
-          eliminarPropiedad.eliminarEdificio(administrador);
+          gestionDatos.eliminarEdificio(administrador);
           break;
         case "6":
-          mostrarDatos.buscarDepartamento(administrador);
+          gestionDatos.buscarDepartamento(administrador);
           break;
         case "7":
-          modificarPropiedad.modificarNombreEdificio(administrador);
+          gestionDatos.modificarNombreEdificio(administrador);
           break;
         case "8":
-          mostrarDatos.mostrarDepartamentosPorPrecios(administrador);
+          gestionDatos.mostrarDepartamentosPorPrecios(administrador);
           break;
         case "9":
           do {
@@ -75,28 +71,28 @@ public class Menu{
           
           switch(opcion){
             case 1:
-                mostrarDatos.mostrarDepartamentosPorOrientacion(administrador,"Norte");
+                gestionDatos.mostrarDepartamentosPorOrientacion(administrador,"Norte");
               break;
             case 2:
-              mostrarDatos.mostrarDepartamentosPorOrientacion(administrador,"NorOeste");
+              gestionDatos.mostrarDepartamentosPorOrientacion(administrador,"NorOeste");
               break;
             case 3:
-              mostrarDatos.mostrarDepartamentosPorOrientacion(administrador,"NorEste");
+              gestionDatos.mostrarDepartamentosPorOrientacion(administrador,"NorEste");
               break;
             case 4:
-              mostrarDatos.mostrarDepartamentosPorOrientacion(administrador,"Oeste");
+              gestionDatos.mostrarDepartamentosPorOrientacion(administrador,"Oeste");
               break;
             case 5:
-              mostrarDatos.mostrarDepartamentosPorOrientacion(administrador,"Este");
+              gestionDatos.mostrarDepartamentosPorOrientacion(administrador,"Este");
               break;
             case 6:
-              mostrarDatos.mostrarDepartamentosPorOrientacion(administrador,"Sur");
+              gestionDatos.mostrarDepartamentosPorOrientacion(administrador,"Sur");
               break;
             case 7:
-              mostrarDatos.mostrarDepartamentosPorOrientacion(administrador,"SurOeste");
+              gestionDatos.mostrarDepartamentosPorOrientacion(administrador,"SurOeste");
               break;
             case 8:
-              mostrarDatos.mostrarDepartamentosPorOrientacion(administrador,"SurEste");
+              gestionDatos.mostrarDepartamentosPorOrientacion(administrador,"SurEste");
               break;
             case 9:
               System.out.println("Gracias por buscar departamentos");
@@ -107,11 +103,9 @@ public class Menu{
             }
         } while (opcion!=9);
         break;
-        case "10":
-            generarReporte.crearReporte(administrador);
-            break;
         case "x":
           System.out.println("Nos vemos!");
+          generarReporte.crearReporte(administrador);
           mostrarMenu = false;
           break;
         default:
