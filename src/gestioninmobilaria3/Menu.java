@@ -6,7 +6,7 @@ public class Menu extends JFrame{
   Administrador administrador = new Administrador();
   Datos gestionDatos = new Datos();
   GenerarReporte generarReporte = new GenerarReporte();
-  public void menuPrincipal(int opc)throws IOException{
+  public void menuPrincipal(int opc)throws IOException, InterruptedException{
     BufferedReader lectura = new BufferedReader(new InputStreamReader( System.in ));
     boolean mostrarMenu = true;
     int opcion;
@@ -103,6 +103,9 @@ public class Menu extends JFrame{
             }
         } while (opcion!=9);
         break;
+        case "10":
+            gestionDatos.eliminarDepartamento(administrador);
+            break;
         case "x":
           System.out.println("Nos vemos!");
           generarReporte.crearReporte(administrador);

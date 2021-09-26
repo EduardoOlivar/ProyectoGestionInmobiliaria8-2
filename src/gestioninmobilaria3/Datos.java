@@ -71,7 +71,11 @@ public class Datos{
       System.out.println(administrador.getListaEdificio().get(i).getId()+": "+administrador.getListaEdificio().get(i).getNombre()+" || "+administrador.getListaEdificio().get(i).getDireccion()+" || "+administrador.getListaEdificio().get(i).getLocalidad()+" || " +administrador.getListaEdificio().get(i).getArquitecto());
     }        
   }
-
+  
+ /* public void mostrarEdificio(Administrador administrador, String nombreEd){
+      
+  }
+*/
   /*muestra todos los departamentos si es que hay*/
   public void mostrarTodosLosDepartamentos(Administrador administrador){
     administrador.mostrarTodosLosDepartamentos();
@@ -179,7 +183,30 @@ public class Datos{
     BufferedReader lectura = new BufferedReader( new InputStreamReader( System.in));
     System.out.println("Ingrese id del edificio que quiere eliminar");
     String idEdificio = lectura.readLine();
-    administrador.eliminarEdificio(idEdificio);
-  }  
+    Edificio edificioEliminado = administrador.eliminarEdificio(idEdificio);
+      System.out.println("El edificio "+edificioEliminado.getNombre()+ " ha sido eliminado");
+  }
+
+  public void eliminarDepartamento(Administrador administrador)throws IOException, InterruptedException{
+    if(administrador.vacio()){
+      System.out.println("No existen Edificios");
+      return;
+    }
+    BufferedReader lectura = new BufferedReader( new InputStreamReader( System.in));
+    System.out.println("A continuacion se mostraran el listado de edificos con sus departamentos para que tenga una referencia");
+    Thread.sleep(2500);
+    mostrarTodosLosDepartamentos(administrador);
+    Thread.sleep(2000);
+    System.out.println("Ingrese el nombre del edificio donde se encuentre el departamento: ");
+    String nombreEd = lectura.readLine();
+    if(administrador.getEdificiosId().containsKey(nombreEd)){
+        System.out.println("Ingre el ID del departamento que quiera eliminar");
+        String idDepartamento = lectura.readLine();
+        administrador.eliminarDepartamento(idDepartamento, nombreEd);        
+    } else {
+        System.out.println("La opcion ingresada no es valida");
+      }
+
+  }   
       
 }

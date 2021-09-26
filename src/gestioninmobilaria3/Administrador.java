@@ -106,7 +106,7 @@ public class Administrador {
     // elimina edificio a partir de su id
     public Edificio  eliminarEdificio(String idEdificio){
         if(!edificiosId.containsKey(idEdificio)){
-            System.out.println("No existe un Edificio con el codigo ingresado");
+            System.out.println("No existe un Edificio con el id ingresado");
             return null;
 
         }
@@ -136,6 +136,19 @@ public class Administrador {
         }
         return edificioEliminado;
     }
+    
+    public void eliminarDepartamento(String idDepartamento,String nombreEd){
+        for (int i = 0; i < listaEdificio.size(); i++) {
+            if(listaEdificio.get(i).getId().equals(nombreEd)){
+                listaEdificio.get(i).eliminarDepartamento(idDepartamento);
+                return;
+            }else{
+                    System.out.println("La opcion ingresada no es valida...");
+                    break;
+                 }   
+        }
+    }
+    
     //muestra todos los departamentos en la lista
     public void mostrarTodosLosDepartamentos(){
         if(listaEdificio.isEmpty() ){
