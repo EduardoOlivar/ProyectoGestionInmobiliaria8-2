@@ -100,10 +100,24 @@ public class Datos{
       }
     }               
   }
-
+  
+  /*funcion para verificar que sea un numero y no un string*/
+  public int verificacionNumerica() throws  IOException{
+        BufferedReader leer = new  BufferedReader( new InputStreamReader( System.in));
+        String numeroString;        
+        while(true){
+            numeroString = leer.readLine();
+            if(numeroString.matches("[+-]?\\d*(\\.\\d+)?") && (numeroString.equals("")==false))
+                break;
+            else
+                System.out.println("Ingrese un numero valido");
+        }        
+        int numeroInt = Integer.parseInt(numeroString);
+        return numeroInt;  
+    } 
+  
   /*Muestra por pantalla los departamentos en los edificios que esten en un rango especificado por el usuario*/
   public void mostrarDepartamentosPorPrecios(Administrador administrador)throws IOException{
-    BufferedReader lectura = new  BufferedReader( new InputStreamReader( System.in));
     if(administrador.vacio()){
       System.out.println("No hay Edificios, ingrese Edificios para tener departamentos");
       return;
@@ -113,9 +127,9 @@ public class Datos{
       return;
     }
     System.out.println("Ingrese el primer valor para el rango");
-    int valorDpto1 = Integer.parseInt(lectura.readLine());
+    int valorDpto1 = verificacionNumerica();
     System.out.println("Ingrese el segundo valor para el rango");
-    int valorDpto2 = Integer.parseInt(lectura.readLine());     
+    int valorDpto2 = verificacionNumerica();     
     if(valorDpto1 < valorDpto2){
       administrador.mostrarDepartamentosPorPrecios(valorDpto1,valorDpto2);
       return;
@@ -124,7 +138,6 @@ public class Datos{
   }
 
   public void mostrarDepartamentosPorOrientacion(Administrador administrador, String orientacionDpto)throws IOException{
-    BufferedReader lectura = new  BufferedReader( new InputStreamReader( System.in));
     if(administrador.vacio()){
       System.out.println("No hay Edificios, ingrese Edificios para tener departamentos");
       return;
@@ -139,18 +152,72 @@ public class Datos{
     /* Lista de departamentos predeterminados*/
   public void cargarDepartamentos(Administrador administrador){
     if(administrador.getListaEdificio().size() >=3){
-      administrador.agregarDepartamentoAedificio("1", "1","1", "2000", "Sur", 1, 2, 36,"Disponible");
-      administrador.agregarDepartamentoAedificio("1", "1","2", "2000", "Sur", 1, 2, 36,"vendido");
-      administrador.agregarDepartamentoAedificio("1", "2","3", "2000", "Norte", 1, 2, 36,"vendido");
-      administrador.agregarDepartamentoAedificio("1", "2","4", "2000", "NorOeste", 1, 2, 36,"Disponible");         
-      administrador.agregarDepartamentoAedificio("2", "1","1", "3500", "SurEste", 2, 3, 56,"vendido");
-      administrador.agregarDepartamentoAedificio("2", "1","2", "3500", "SurOeste", 2, 3, 56,"vendido");
-      administrador.agregarDepartamentoAedificio("2", "2","3", "3500", "NorEste", 2, 3, 56,"Disponible");
-      administrador.agregarDepartamentoAedificio("2", "2","4", "3500", "Norte", 2, 3, 56,"Disponible");
+      administrador.agregarDepartamentoAedificio("1", "1","110", "2000", "Sur", 1, 2, 36,"Disponible");
+      administrador.agregarDepartamentoAedificio("1", "1","120", "2000", "Sur", 1, 2, 36,"vendido");
+      administrador.agregarDepartamentoAedificio("1", "1","130", "2600", "Norte", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("1", "1","140", "2600", "NorOeste", 2, 3, 45,"Disponible");
+      administrador.agregarDepartamentoAedificio("1", "2","210", "2400", "NorOeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("1", "2","220", "2400", "Oeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("1", "2","230", "2890", "Oeste", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("1", "2","240", "3290", "Este", 2, 4, 60,"Disponible");
+      administrador.agregarDepartamentoAedificio("1", "2","250", "2000", "Este", 1, 2, 36,"Disponible");
+      administrador.agregarDepartamentoAedificio("1", "3","110", "2000", "Sur", 1, 2, 36,"Disponible");
+      administrador.agregarDepartamentoAedificio("1", "3","120", "2000", "Sur", 1, 2, 36,"vendido");
+      administrador.agregarDepartamentoAedificio("1", "3","130", "2600", "Norte", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("1", "3","140", "2600", "NorOeste", 2, 3, 45,"Disponible");
+      administrador.agregarDepartamentoAedificio("1", "3","210", "2400", "NorOeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("1", "4","220", "2400", "Oeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("1", "4","230", "2890", "Oeste", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("1", "4","240", "3290", "Este", 2, 4, 60,"Disponible");
+      administrador.agregarDepartamentoAedificio("1", "4","250", "2000", "Este", 1, 2, 36,"Disponible");
+      administrador.agregarDepartamentoAedificio("2", "1","11", "3500", "SurEste", 2, 3, 56,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "1","12", "3500", "SurOeste", 2, 3, 56,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "1","13", "3500", "NorEste", 2, 3, 56,"Disponible");
+      administrador.agregarDepartamentoAedificio("2", "1","14", "3500", "Norte", 2, 3, 56,"Disponible");
+      administrador.agregarDepartamentoAedificio("2", "2","21", "2000", "Sur", 1, 2, 36,"Disponible");
+      administrador.agregarDepartamentoAedificio("2", "2","22", "2000", "Sur", 1, 2, 36,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "2","23", "2600", "Norte", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "2","24", "2600", "NorOeste", 2, 3, 45,"Disponible");
+      administrador.agregarDepartamentoAedificio("2", "3","31", "2400", "NorOeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "3","32", "2400", "Oeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "3","33", "2890", "Oeste", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "3","34", "3290", "Este", 2, 4, 60,"Disponible");
+      administrador.agregarDepartamentoAedificio("2", "3","35", "2000", "Este", 1, 2, 36,"Disponible");
+      administrador.agregarDepartamentoAedificio("2", "4","41", "2000", "Sur", 1, 2, 36,"Disponible");
+      administrador.agregarDepartamentoAedificio("2", "4","42", "2000", "Sur", 1, 2, 36,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "4","43", "2600", "Norte", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "4","44", "2600", "NorOeste", 2, 3, 45,"Disponible");
+      administrador.agregarDepartamentoAedificio("2", "4","51", "2400", "NorOeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "5","52", "2400", "Oeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "5","53", "2890", "Oeste", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("2", "5","54", "3290", "Este", 2, 4, 60,"Disponible");
+      administrador.agregarDepartamentoAedificio("2", "5","55", "2000", "Este", 1, 2, 36,"Disponible");
       administrador.agregarDepartamentoAedificio("3", "1","1", "3420", "Este", 2, 3, 50,"vendido");
       administrador.agregarDepartamentoAedificio("3", "1","2", "3420", "SurOeste", 2, 3, 50,"Disponible");
-      administrador.agregarDepartamentoAedificio("3", "2","3", "3420", "NorEste", 2, 3, 50,"vendido");
-      administrador.agregarDepartamentoAedificio("3", "2","4", "3420", "NorOeste", 2, 3, 50,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "1","3", "3420", "NorEste", 2, 3, 50,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "1","4", "3420", "NorOeste", 2, 3, 50,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "1","11", "3500", "SurEste", 2, 3, 56,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "1","12", "3500", "SurOeste", 2, 3, 56,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "2","13", "3500", "NorEste", 2, 3, 56,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "2","14", "3500", "Norte", 2, 3, 56,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "2","15", "2000", "Sur", 1, 2, 36,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "2","16", "2000", "Sur", 1, 2, 36,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "2","17", "2600", "Norte", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "2","18", "2600", "NorOeste", 2, 3, 45,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "3","20", "2400", "NorOeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "3","22", "2400", "Oeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "3","23", "2890", "Oeste", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "3","24", "3290", "Este", 2, 4, 60,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "3","25", "2000", "Este", 1, 2, 36,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "4","31", "2000", "Sur", 1, 2, 36,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "4","33", "2000", "Sur", 1, 2, 36,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "4","34", "2600", "Norte", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "4","36", "2600", "NorOeste", 2, 3, 45,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "4","37", "2400", "NorOeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "5","45", "2400", "Oeste", 2, 2, 40,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "5","46", "2890", "Oeste", 2, 3, 45,"vendido");
+      administrador.agregarDepartamentoAedificio("3", "5","47", "3290", "Este", 2, 4, 60,"Disponible");
+      administrador.agregarDepartamentoAedificio("3", "5","49", "2000", "Este", 1, 2, 36,"Disponible");
       return;
     }
     System.out.println("Crear primero 3 edificios para acceder a esta opcion");
@@ -175,7 +242,7 @@ public class Datos{
     String NombreEdificio = lectura.readLine();
     administrador.modificarNombreEdificio(NombreEdificio, idEdificio);
   } 
-  public void eliminarEdificio(Administrador administrador)throws IOException{
+  public void eliminarUnEdificio(Administrador administrador)throws IOException{
     if(administrador.vacio()){
       System.out.println("No existen Edificios");
       return;
@@ -183,30 +250,29 @@ public class Datos{
     BufferedReader lectura = new BufferedReader( new InputStreamReader( System.in));
     System.out.println("Ingrese id del edificio que quiere eliminar");
     String idEdificio = lectura.readLine();
-    Edificio edificioEliminado = administrador.eliminarEdificio(idEdificio);
+    Edificio edificioEliminado = administrador.eliminarEdificioDeAdministrador(idEdificio);
       System.out.println("El edificio "+edificioEliminado.getNombre()+ " ha sido eliminado");
   }
 
-  public void eliminarDepartamento(Administrador administrador)throws IOException, InterruptedException{
+  public void eliminarUnDepartamento(Administrador administrador)throws IOException, InterruptedException{
     if(administrador.vacio()){
       System.out.println("No existen Edificios");
       return;
     }
     BufferedReader lectura = new BufferedReader( new InputStreamReader( System.in));
-    System.out.println("A continuacion se mostraran el listado de edificos con sus departamentos para que tenga una referencia");
-    Thread.sleep(2500);
+    System.out.println("A continuacion se mostraran el listado de edificos con sus departamentos");
+    Thread.sleep(500);
     mostrarTodosLosDepartamentos(administrador);
-    Thread.sleep(2000);
-    System.out.println("Ingrese el nombre del edificio donde se encuentre el departamento: ");
-    String nombreEd = lectura.readLine();
-    if(administrador.getEdificiosId().containsKey(nombreEd)){
-        System.out.println("Ingre el ID del departamento que quiera eliminar");
+    Thread.sleep(500);
+    System.out.println("Ingrese el Id del edificio donde se encuentre el departamento: ");
+    String idEdificio = lectura.readLine();
+    if(administrador.getEdificiosId().containsKey(idEdificio)){
+        System.out.println("Ingre el Id del departamento que quiera eliminar");
         String idDepartamento = lectura.readLine();
-        administrador.eliminarDepartamento(idDepartamento, nombreEd);        
+        administrador.eliminarDepartamentoEnEdificio(idDepartamento, idEdificio);        
     } else {
         System.out.println("La opcion ingresada no es valida");
       }
-
   }   
       
 }

@@ -1,4 +1,5 @@
 package gestioninmobilaria3;
+
 import java.util.*;
 
 public class Administrador {
@@ -104,7 +105,7 @@ public class Administrador {
     public boolean existeEdifcio(String idEdificio){return edificiosId.containsKey(idEdificio);}
     
     // elimina edificio a partir de su id
-    public Edificio  eliminarEdificio(String idEdificio){
+    public Edificio  eliminarEdificioDeAdministrador(String idEdificio){
         if(!edificiosId.containsKey(idEdificio)){
             System.out.println("No existe un Edificio con el id ingresado");
             return null;
@@ -120,7 +121,7 @@ public class Administrador {
                     break;
                 }
             }
-                listaEdificio.get(i).eliminarDepartamentos();
+                listaEdificio.get(i).eliminarDepartamento();
                 this.idAdministrador = 0;
                 return edificioEliminado;
             
@@ -137,16 +138,15 @@ public class Administrador {
         return edificioEliminado;
     }
     
-    public void eliminarDepartamento(String idDepartamento,String nombreEd){
+    public void eliminarDepartamentoEnEdificio(String idDepartamento,String idEdificio){
         for (int i = 0; i < listaEdificio.size(); i++) {
-            if(listaEdificio.get(i).getId().equals(nombreEd)){
+            if(listaEdificio.get(i).getId().equals(idEdificio)){
                 listaEdificio.get(i).eliminarDepartamento(idDepartamento);
                 return;
-            }else{
-                    System.out.println("La opcion ingresada no es valida...");
-                    break;
-                 }   
+            } 
         }
+        System.out.println("La opcion ingresada no es valida...");
+
     }
     
     //muestra todos los departamentos en la lista
@@ -191,5 +191,5 @@ public class Administrador {
     public HashMap<String,Edificio>getEdificiosId(){return edificiosId;}
     public int getIdAdministrador() {return idAdministrador;}
     //setter
-    public void setIdAdministrador(int idEdificio) {this.idAdministrador = idAdministrador;}
+    public void setIdAdministrador(int idAdministrador) {this.idAdministrador = idAdministrador;}
 }

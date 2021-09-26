@@ -25,6 +25,7 @@ public class Menu extends JFrame{
       System.out.println("(7)  Modificar nombre de Edificio");
       System.out.println("(8)  Mostrar Departamentos por rango de precios");
       System.out.println("(9)  Mostrar Departamentos por Orientacion");
+      System.out.println("(10) Eliminar Departamento");
       System.out.println("presione x para salir");
             
       String eleccion = lectura.readLine();
@@ -43,7 +44,7 @@ public class Menu extends JFrame{
           gestionDatos.mostrarTodosLosDepartamentos(administrador);   
           break;
         case "5":
-          gestionDatos.eliminarEdificio(administrador);
+          gestionDatos.eliminarUnEdificio(administrador);
           break;
         case "6":
           gestionDatos.buscarDepartamento(administrador);
@@ -104,7 +105,7 @@ public class Menu extends JFrame{
         } while (opcion!=9);
         break;
         case "10":
-            gestionDatos.eliminarDepartamento(administrador);
+            gestionDatos.eliminarUnDepartamento(administrador);
             break;
         case "x":
           System.out.println("Nos vemos!");

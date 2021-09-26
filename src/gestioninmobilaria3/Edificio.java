@@ -44,7 +44,7 @@ public class Edificio
         this.agregarDepartamento(departamento);     
     }   
     
-    public void eliminarDepartamentos(){
+    public void eliminarDepartamento(){
              departamentosId = new HashMap();
              listaDepartamentos = new ArrayList();
     }
