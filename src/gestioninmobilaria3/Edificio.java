@@ -63,7 +63,7 @@ public class Edificio
         }
    
     }
- 
+    //muestra lso departamentos en para cada edificio
     public void mostrarDepartamento(){
         int i;
         for (i = 0; i < listaDepartamentos.size(); i++) {

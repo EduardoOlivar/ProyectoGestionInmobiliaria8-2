@@ -65,7 +65,7 @@ public class Administrador {
         }
         return false;        
     }    
-
+//busca departamento para ver si existe o no 
     public boolean BuscarDepartamento(String idDepartamento){
         if(vacio()){
             System.out.println("No existen departamentos");
@@ -80,7 +80,7 @@ public class Administrador {
             return false;
         }
     }
-    
+    //agrega departamento a edificio especifico
     public void agregarDepartamentoAedificio(String idEdificio,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBaños, int cantidadDormitorios, double metrosCuadrados, String disponibilidadDpto){
         if(edificiosId.containsKey(idEdificio)){      
             int idDpto = 0;
@@ -137,7 +137,7 @@ public class Administrador {
         }
         return edificioEliminado;
     }
-    
+    // entra a la lista de edificios y busca el departamento a eliminar
     public void eliminarDepartamentoEnEdificio(String idDepartamento,String idEdificio){
         for (int i = 0; i < listaEdificio.size(); i++) {
             if(listaEdificio.get(i).getId().equals(idEdificio)){
@@ -174,7 +174,7 @@ public class Administrador {
           listaEdificio.get(i).mostrarDptosPorPrecios(valorInicial, valorFinal);
       }
     }
-    
+    //entra a la lista de edificios para buscar los departamentos
     public void mostrarOrientacionDepartamentos(String orientacion)
     {
       for(int i = 0 ;i <  listaEdificio.size();i++)
