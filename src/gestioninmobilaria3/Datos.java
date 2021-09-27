@@ -71,11 +71,6 @@ public class Datos{
       System.out.println(administrador.getListaEdificio().get(i).getId()+": "+administrador.getListaEdificio().get(i).getNombre()+" || "+administrador.getListaEdificio().get(i).getDireccion()+" || "+administrador.getListaEdificio().get(i).getLocalidad()+" || " +administrador.getListaEdificio().get(i).getArquitecto());
     }        
   }
-  
- /* public void mostrarEdificio(Administrador administrador, String nombreEd){
-      
-  }
-*/
   /*muestra todos los departamentos si es que hay*/
   public void mostrarTodosLosDepartamentos(Administrador administrador){
     administrador.mostrarTodosLosDepartamentos();
@@ -90,11 +85,11 @@ public class Datos{
     if(administrador.BuscarDepartamento(idDepartamento))
       mostrarDepartamento(idDepartamento,administrador);
   } 
-
+//muestra todos los departamentos
   public void mostrarDepartamento(String idDepartamento,Administrador administrador){//Se seguieron las recomendaciones y se movieron al main todas las interacciones con el usuario
     for(int i = 0; i<administrador.getListaEdificio().size();i++){
       if(administrador.getListaEdificio().get(i).getDepartamentosId().containsKey(idDepartamento)){
-        System.out.println("codigo: Numero de piso     numero de departamento            valor en uf                 orientacion               cantidad de baños            cantidad de dormitorios       metro cuadrados       disponibilidad departamento");
+        System.out.println("id: Numero de piso     numero de departamento            valor en uf                 orientacion               cantidad de baños            cantidad de dormitorios       metro cuadrados       disponibilidad departamento");
         System.out.println("     "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getIdDepartamento()+":            "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getNumeroPiso()+ "               "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getNumeroDpto()+"                              "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getValorDpto()+"                       "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getOrientacion()+"                         "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getCantidadBaños()+"                               "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getCantidadDormitorios()+"                          "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getMetrosCuadrados()+"                          "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getDisponibilidadDpto());  
         return;
       }
@@ -136,7 +131,7 @@ public class Datos{
     }
     administrador.mostrarDepartamentosPorPrecios(valorDpto2,valorDpto1);
   }
-
+//muestra los departasmentos por orientacion que decida el usuario
   public void mostrarDepartamentosPorOrientacion(Administrador administrador, String orientacionDpto)throws IOException{
     if(administrador.vacio()){
       System.out.println("No hay Edificios, ingrese Edificios para tener departamentos");
@@ -229,7 +224,7 @@ public class Datos{
     administrador.agregarEdificios("LADY","15 norte 242","Viña del mar","Mario Castañeda");
     administrador.agregarEdificios("10 norte","10 norte 655","Viña del mar","Quiroz y Puelma Arquitectos");
   } 
-
+//modifica el nombre de un edificio
   public void modificarNombreEdificio(Administrador administrador)throws IOException{
     if(administrador.vacio()){
       System.out.println("No existen Edificios");
@@ -242,6 +237,7 @@ public class Datos{
     String NombreEdificio = lectura.readLine();
     administrador.modificarNombreEdificio(NombreEdificio, idEdificio);
   } 
+  //elimina un edificio especifico
   public void eliminarUnEdificio(Administrador administrador)throws IOException{
     if(administrador.vacio()){
       System.out.println("No existen Edificios");
@@ -254,6 +250,7 @@ public class Datos{
       System.out.println("El edificio "+edificioEliminado.getNombre()+ " ha sido eliminado");
   }
 
+  //elimina un departamendo especifico de un edificio especifico
   public void eliminarUnDepartamento(Administrador administrador)throws IOException, InterruptedException{
     if(administrador.vacio()){
       System.out.println("No existen Edificios");

@@ -67,7 +67,7 @@ public class Edificio
     public void mostrarDepartamento(){
         int i;
         for (i = 0; i < listaDepartamentos.size(); i++) {
-            System.out.println("Codigo Dpto:"+listaDepartamentos.get(i).getIdDepartamento()+" Numero Dpto: "+listaDepartamentos.get(i).getNumeroDpto()+", Orientacion: "+listaDepartamentos.get(i).getOrientacion()+", Valor(UF): "+listaDepartamentos.get(i).getValorDpto()+", Cantidad de baños: "+listaDepartamentos.get(i).getCantidadBaños()+", Cantidad de dormitorios: "+listaDepartamentos.get(i).getCantidadDormitorios()+", Metros cuadrado: "+listaDepartamentos.get(i).getMetrosCuadrados()+", Disponibilidad: "+listaDepartamentos.get(i).getDisponibilidadDpto());                    
+            System.out.println("Id:"+listaDepartamentos.get(i).getIdDepartamento()+" Numero Dpto: "+listaDepartamentos.get(i).getNumeroDpto()+", Orientacion: "+listaDepartamentos.get(i).getOrientacion()+", Valor(UF): "+listaDepartamentos.get(i).getValorDpto()+", Cantidad de baños: "+listaDepartamentos.get(i).getCantidadBaños()+", Cantidad de dormitorios: "+listaDepartamentos.get(i).getCantidadDormitorios()+", Metros cuadrado: "+listaDepartamentos.get(i).getMetrosCuadrados()+", Disponibilidad: "+listaDepartamentos.get(i).getDisponibilidadDpto());                    
            
         }
         

@@ -160,7 +160,7 @@ public class Administrador {
                     System.out.println("La lista de Departamentos está vacía");
                     return;
                 }
-                    System.out.println("Lista de Departamentos del edificio "+listaEdificio.get(i).getNombre());
+                    System.out.println("Id del edificio: "+listaEdificio.get(i).getId()+", Departamentos en el edificio "+listaEdificio.get(i).getNombre());
                     listaEdificio.get(i).mostrarDepartamento();
             }
         }
@@ -174,6 +174,7 @@ public class Administrador {
           listaEdificio.get(i).mostrarDptosPorPrecios(valorInicial, valorFinal);
       }
     }
+    
     public void mostrarOrientacionDepartamentos(String orientacion)
     {
       for(int i = 0 ;i <  listaEdificio.size();i++)
