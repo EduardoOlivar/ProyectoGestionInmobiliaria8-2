@@ -84,7 +84,7 @@ public class GenerarReporte {
             book.write(fileout);
             fileout.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(GestionInmobilaria3.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("No se pudo generar el reporte, ya que el archivo EXCEL esta siendo utilizado");
         } catch (IOException ex) {
             Logger.getLogger(GestionInmobilaria3.class.getName()).log(Level.SEVERE, null, ex);
         }

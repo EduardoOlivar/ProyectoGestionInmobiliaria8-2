@@ -20,7 +20,7 @@ public class Administrador {
 
     }
     //metodo privado que agregarEdificios,verifica si ya existe el edificio. si no existe los agrega al mapa edficiosId y listaEdificios
-    private boolean agregarEdificios(Edificio edificio){
+    private boolean agregarEdificio(Edificio edificio){
         if(edificiosNombre.containsKey(edificio.getNombreEdificio())){
             return false;
         }
@@ -31,10 +31,10 @@ public class Administrador {
     }
     
     //metodo2 que recive la instancia de un edificio nuevo y lo envia por parametro al agregarEdicios metodo 1;
-    public boolean agregarEdificios(String nombre, String direccion, String localidad, String arquitecto){
+    public boolean agregarEdificio(String nombre, String direccion, String localidad, String arquitecto){
         this.idAdministrador = this.idAdministrador + 1;
         Edificio nuevoEdificio = new Edificio(String.valueOf(idAdministrador),nombre,direccion,localidad,arquitecto);
-        if(this.agregarEdificios(nuevoEdificio))
+        if(this.agregarEdificio(nuevoEdificio))
             return true;
         return false;
     }

@@ -15,7 +15,7 @@ public class Datos{
     String localidadEdificio = lectura.readLine();
     System.out.println("Ingrese arquitecto del edificio");
     String arquitectoEdificio = lectura.readLine();         
-    if(administrador.agregarEdificios(nombreEdificio, direccionEdificio, localidadEdificio, arquitectoEdificio)){
+    if(administrador.agregarEdificio(nombreEdificio, direccionEdificio, localidadEdificio, arquitectoEdificio)){
       System.out.println("El edificio  "+nombreEdificio + " tiene el id: "+administrador.getEdificiosNombre().get(nombreEdificio).getIdEdificio());
     }
     else
@@ -220,9 +220,9 @@ public class Datos{
 
       /*Llenado predeterminado*/
   public void cargarEdificios(Administrador administrador){
-    administrador.agregarEdificios("Viana Miramar","Viana 161","Viña del mar","Roberto Rau");
-    administrador.agregarEdificios("LADY","15 norte 242","Viña del mar","Mario Castañeda");
-    administrador.agregarEdificios("10 norte","10 norte 655","Viña del mar","Quiroz y Puelma Arquitectos");
+    administrador.agregarEdificio("Viana Miramar","Viana 161","Viña del mar","Roberto Rau");
+    administrador.agregarEdificio("LADY","15 norte 242","Viña del mar","Mario Castañeda");
+    administrador.agregarEdificio("10 norte","10 norte 655","Viña del mar","Quiroz y Puelma Arquitectos");
   } 
 //modifica el nombre de un edificio
   public void modificarNombreEdificio(Administrador administrador)throws IOException{
