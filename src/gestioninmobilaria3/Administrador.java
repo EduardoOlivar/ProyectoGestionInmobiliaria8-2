@@ -1,6 +1,7 @@
 package gestioninmobilaria3;
 
 import java.util.*;
+import java.io.*;
 
 public class Administrador {
     
@@ -20,12 +21,12 @@ public class Administrador {
     }
     //metodo privado que agregarEdificios,verifica si ya existe el edificio. si no existe los agrega al mapa edficiosId y listaEdificios
     private boolean agregarEdificios(Edificio edificio){
-        if(edificiosNombre.containsKey(edificio.getNombre())){
+        if(edificiosNombre.containsKey(edificio.getNombreEdificio())){
             return false;
         }
         listaEdificio.add(edificio);
-        edificiosId.put(edificio.getId(), edificio);
-        edificiosNombre.put(edificio.getNombre(), edificio);
+        edificiosId.put(edificio.getIdEdificio(), edificio);
+        edificiosNombre.put(edificio.getNombreEdificio(), edificio);
         return true;
     }
     
@@ -40,12 +41,13 @@ public class Administrador {
    
     public void modificarNombreEdificio(String nombre, String idEdificio){
         for (int i = 0; i < listaEdificio.size(); i++) {
-            if(listaEdificio.get(i).getId().equals(idEdificio)){
-                listaEdificio.get(i).setNombre(nombre);
-                edificiosId.get(idEdificio).setNombre(nombre);
+            if(listaEdificio.get(i).getIdEdificio().equals(idEdificio)){
+                listaEdificio.get(i).setNombreEdificio(nombre);
+                edificiosId.get(idEdificio).setNombreEdificio(nombre);
             }
         }
     }
+    
     
     public boolean existeDepartamento(String idDepartamento){
         int i;
@@ -56,7 +58,7 @@ public class Administrador {
         return false;        
     } 
     
-    public boolean existeDepartamentos(){
+    public boolean existeDepartamento(){
         int i;
         for (i = 0; i < listaEdificio.size(); i++) {
             if(listaEdificio.get(i).existeDepartamento()){
@@ -116,7 +118,7 @@ public class Administrador {
             Edificio edificioEliminado = edificiosId.remove(idEdificio);
             int i;
             for (i = 0; i < listaEdificio.size(); i++) {
-                if(listaEdificio.get(i).getId().equals(idEdificio)){
+                if(listaEdificio.get(i).getIdEdificio().equals(idEdificio)){
                     listaEdificio.remove(i);
                     break;
                 }
@@ -130,7 +132,7 @@ public class Administrador {
         int i;
         for ( i = 0; i < listaEdificio.size(); i++) {
             //se busca edificio en la lista para luego eliminarlo
-            if (listaEdificio.get(i).getId().equals(idEdificio)) {
+            if (listaEdificio.get(i).getIdEdificio().equals(idEdificio)) {
                 listaEdificio.remove(i);//lista
                 break;
             }
@@ -140,7 +142,7 @@ public class Administrador {
     // entra a la lista de edificios y busca el departamento a eliminar
     public void eliminarDepartamentoEnEdificio(String idDepartamento,String idEdificio){
         for (int i = 0; i < listaEdificio.size(); i++) {
-            if(listaEdificio.get(i).getId().equals(idEdificio)){
+            if(listaEdificio.get(i).getIdEdificio().equals(idEdificio)){
                 listaEdificio.get(i).eliminarDepartamento(idDepartamento);
                 return;
             } 
@@ -160,7 +162,7 @@ public class Administrador {
                     System.out.println("La lista de Departamentos está vacía");
                     return;
                 }
-                    System.out.println("Id del edificio: "+listaEdificio.get(i).getId()+", Departamentos en el edificio "+listaEdificio.get(i).getNombre());
+                    System.out.println("Id del edificio: "+listaEdificio.get(i).getIdEdificio()+", Departamentos en el edificio "+listaEdificio.get(i).getNombreEdificio());
                     listaEdificio.get(i).mostrarDepartamento();
             }
         }
@@ -170,7 +172,7 @@ public class Administrador {
     {
       for(int i = 0 ; i < listaEdificio.size(); i++)
       {
-          System.out.println("En el edificio "+ listaEdificio.get(i).getNombre());
+          System.out.println("En el edificio "+ listaEdificio.get(i).getNombreEdificio());
           listaEdificio.get(i).mostrarDptosPorPrecios(valorInicial, valorFinal);
       }
     }
@@ -179,12 +181,10 @@ public class Administrador {
     {
       for(int i = 0 ;i <  listaEdificio.size();i++)
       {
-        System.out.println("En el edificio "+ listaEdificio.get(i).getNombre());
+        System.out.println("En el edificio "+ listaEdificio.get(i).getNombreEdificio());
         listaEdificio.get(i).mostrarDptosPorOrientacion(orientacion);
       }
     }
-
-
     
     //getter
     public ArrayList<Edificio> getListaEdificio() {return listaEdificio;}

@@ -4,23 +4,23 @@ import java.util.*;
 
 public class Edificio
 {
-    private String id;
-    private String nombre;
-    private String direccion;
-    private String localidad;
-    private String arquitecto;
+    private String idEdificio;
+    private String nombreEdificio;
+    private String direccionEdificio;
+    private String localidadEdificio;
+    private String arquitectoEdificio;
     private ArrayList<Departamento> listaDepartamentos;
     private HashMap<String,Departamento>departamentosId; //mapa departamentosId que facilita la bisqueda de un departamento por id;
 
     //constructor
     
-    public Edificio(String id ,String nombre, String direccion, String localidad, String arquitecto)
+    public Edificio(String idEdificio ,String nombreEdificio, String direccionEdificio, String localidadEdificio, String arquitectoEdificio)
     {
-        this.id = id;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.localidad = localidad;
-        this.arquitecto = arquitecto;
+        this.idEdificio = idEdificio;
+        this.nombreEdificio = nombreEdificio;
+        this.direccionEdificio = direccionEdificio;
+        this.localidadEdificio = localidadEdificio;
+        this.arquitectoEdificio = arquitectoEdificio;
         this.listaDepartamentos = new ArrayList(); // por ahora ira asi para poder hacer el entregable 2
         departamentosId = new HashMap();
              
@@ -132,19 +132,19 @@ public class Edificio
     public boolean buscarDepartamentoE(String idDepartamento){return departamentosId.containsKey(idDepartamento);}
 
     //getter
-    public String getId(){return id;}    
-    public String getNombre(){return nombre;}
-    public String getLocalidad(){return localidad;}
-    public String getDireccion(){return direccion;}
-    public String getArquitecto(){return arquitecto;}
+    public String getIdEdificio(){return idEdificio;}    
+    public String getNombreEdificio(){return nombreEdificio;}
+    public String getLocalidadEdificio(){return localidadEdificio;}
+    public String getDireccionEdificio(){return direccionEdificio;}
+    public String getArquitectoEdificio(){return arquitectoEdificio;}
     public HashMap<String,Departamento> getDepartamentosId(){return departamentosId;}
     public ArrayList<Departamento> getDepartamentos(){return listaDepartamentos;}
     //setter
-    public void setId(String id){this.id = id;}
-    public void setNombre(String nombre){this.nombre = nombre;}
-    public void setLocalidad(String localidad){this.localidad = localidad;}
-    public void setDireccion(String direccion){this.direccion = direccion;}
-    public void setArquitecto(String arquitecto){this.arquitecto = arquitecto;}
+    public void setIdEdificio(String id){this.idEdificio = idEdificio;}
+    public void setNombreEdificio(String nombre){this.nombreEdificio = nombreEdificio;}
+    public void setLocalidadEdificio(String localidad){this.localidadEdificio = localidadEdificio;}
+    public void setDireccionEdificio(String direccion){this.direccionEdificio = direccionEdificio;}
+    public void setArquitectoEdificio(String arquitecto){this.arquitectoEdificio = arquitectoEdificio;}
     public void setDepartamentos(ArrayList<Departamento>departamentos){this.listaDepartamentos = departamentos;}
 
 }

@@ -16,7 +16,7 @@ public class Datos{
     System.out.println("Ingrese arquitecto del edificio");
     String arquitectoEdificio = lectura.readLine();         
     if(administrador.agregarEdificios(nombreEdificio, direccionEdificio, localidadEdificio, arquitectoEdificio)){
-      System.out.println("El edificio  "+nombreEdificio + " tiene el id: "+administrador.getEdificiosNombre().get(nombreEdificio).getId());
+      System.out.println("El edificio  "+nombreEdificio + " tiene el id: "+administrador.getEdificiosNombre().get(nombreEdificio).getIdEdificio());
     }
     else
       System.out.println("Edificio " + nombreEdificio + " ya existe");
@@ -68,7 +68,7 @@ public class Datos{
     int i;
     System.out.println("Id:  || nombre edifcio || direccion || localidad || arquitecto");
     for(i=0; i<administrador.getListaEdificio().size(); i++){
-      System.out.println(administrador.getListaEdificio().get(i).getId()+": "+administrador.getListaEdificio().get(i).getNombre()+" || "+administrador.getListaEdificio().get(i).getDireccion()+" || "+administrador.getListaEdificio().get(i).getLocalidad()+" || " +administrador.getListaEdificio().get(i).getArquitecto());
+      System.out.println(administrador.getListaEdificio().get(i).getIdEdificio()+": "+administrador.getListaEdificio().get(i).getNombreEdificio()+" || "+administrador.getListaEdificio().get(i).getDireccionEdificio()+" || "+administrador.getListaEdificio().get(i).getLocalidadEdificio()+" || " +administrador.getListaEdificio().get(i).getArquitectoEdificio());
     }        
   }
   /*muestra todos los departamentos si es que hay*/
@@ -117,7 +117,7 @@ public class Datos{
       System.out.println("No hay Edificios, ingrese Edificios para tener departamentos");
       return;
     }
-    if(!administrador.existeDepartamentos()){
+    if(!administrador.existeDepartamento()){
       System.out.println("No hay departamentos almacenados");
       return;
     }
@@ -137,7 +137,7 @@ public class Datos{
       System.out.println("No hay Edificios, ingrese Edificios para tener departamentos");
       return;
     }
-    if(!administrador.existeDepartamentos()){
+    if(!administrador.existeDepartamento()){
       System.out.println("No hay departamentos almacenados");
       return;
     }
@@ -247,7 +247,7 @@ public class Datos{
     System.out.println("Ingrese id del edificio que quiere eliminar");
     String idEdificio = lectura.readLine();
     Edificio edificioEliminado = administrador.eliminarEdificioDeAdministrador(idEdificio);
-      System.out.println("El edificio "+edificioEliminado.getNombre()+ " ha sido eliminado");
+      System.out.println("El edificio "+edificioEliminado.getNombreEdificio()+ " ha sido eliminado");
   }
 
   //elimina un departamendo especifico de un edificio especifico
@@ -270,6 +270,5 @@ public class Datos{
     } else {
         System.out.println("La opcion ingresada no es valida");
       }
-  }   
-      
+  }
 }

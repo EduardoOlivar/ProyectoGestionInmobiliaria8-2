@@ -34,11 +34,11 @@ public class GenerarReporte {
         row.createCell(4).setCellValue("Arquitecto");
         do {
             row = sheet.createRow(k);
-            row.createCell(j).setCellValue(administrador.getListaEdificio().get(i).getId()); 
-            row.createCell(j+1).setCellValue(administrador.getListaEdificio().get(i).getNombre());  
-            row.createCell(j+2).setCellValue(administrador.getListaEdificio().get(i).getDireccion());            
-            row.createCell(j+3).setCellValue(administrador.getListaEdificio().get(i).getLocalidad());
-            row.createCell(j+4).setCellValue(administrador.getListaEdificio().get(i).getArquitecto());            
+            row.createCell(j).setCellValue(administrador.getListaEdificio().get(i).getIdEdificio()); 
+            row.createCell(j+1).setCellValue(administrador.getListaEdificio().get(i).getNombreEdificio());  
+            row.createCell(j+2).setCellValue(administrador.getListaEdificio().get(i).getDireccionEdificio());            
+            row.createCell(j+3).setCellValue(administrador.getListaEdificio().get(i).getLocalidadEdificio());
+            row.createCell(j+4).setCellValue(administrador.getListaEdificio().get(i).getArquitectoEdificio());            
             i=i+1;
             k=k+1;           
         } while (i<administrador.getListaEdificio().size());
@@ -48,7 +48,7 @@ public class GenerarReporte {
         for (int l = 0; l < administrador.getListaEdificio().size(); l++) {
             i=0;
         Row rowDos = sheetDos.createRow(k);
-        rowDos.createCell(0).setCellValue(administrador.getListaEdificio().get(l).getNombre()); 
+        rowDos.createCell(0).setCellValue(administrador.getListaEdificio().get(l).getNombreEdificio()); 
         k=k+1;
         rowDos = sheetDos.createRow(k);
         rowDos.createCell(0).setCellValue("Id Departamento");
