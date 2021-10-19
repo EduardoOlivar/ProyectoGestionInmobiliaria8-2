@@ -31,9 +31,9 @@ public class Administrador {
     }
     
     //metodo2 que recive la instancia de un edificio nuevo y lo envia por parametro al agregarEdicios metodo 1;
-    public boolean agregarEdificio(String nombre, String direccion, String localidad, String arquitecto){
+    public boolean agregarEdificio(String nombre, String direccion, String localidad, String arquitecto,int estrellas){
         this.idAdministrador = this.idAdministrador + 1;
-        Edificio nuevoEdificio = new Edificio(String.valueOf(idAdministrador),nombre,direccion,localidad,arquitecto);
+        Edificio nuevoEdificio = new Hotel(String.valueOf(idAdministrador),nombre,direccion,localidad,arquitecto,estrellas);
         if(this.agregarEdificio(nuevoEdificio))
             return true;
         return false;
@@ -83,7 +83,7 @@ public class Administrador {
         }
     }
     //agrega departamento a edificio especifico
-    public void agregarDepartamentoAedificio(String idEdificio,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBaños, int cantidadDormitorios, double metrosCuadrados, String disponibilidadDpto){
+    public void agregarDepartamentoAedificio(String idEdificio,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados, String disponibilidadDpto){
         if(edificiosId.containsKey(idEdificio)){      
             int idDpto = 0;
             for (int i = 0; i<listaEdificio.size(); i++) {
@@ -96,8 +96,8 @@ public class Administrador {
                 }
             }
           
-            Departamento nuevoDepartamento = new Departamento(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBaños,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);                
-            edificiosId.get(idEdificio).agregarDepartamento(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBaños,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);
+            Departamento nuevoDepartamento = new Departamento(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);                
+            edificiosId.get(idEdificio).agregarDepartamento(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);
             return;           
         }
     }

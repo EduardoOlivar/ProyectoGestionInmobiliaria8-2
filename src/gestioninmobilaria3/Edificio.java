@@ -2,7 +2,7 @@ package gestioninmobilaria3;
 import java.util.*;
 
 
-public class Edificio
+public abstract class Edificio
 {
     private String idEdificio;
     private String nombreEdificio;
@@ -38,9 +38,9 @@ public class Edificio
     }
     
     /*metodo 2 que que llama 1 al primer metodo agregar departamento para mandarle la instancia de este*/
-    public void agregarDepartamento(String idDepartamento,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBaños, int cantidadDormitorios, double metrosCuadrados, String disponibilidadDpto)
+    public void agregarDepartamento(String idDepartamento,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados, String disponibilidadDpto)
     {
-        Departamento departamento = new Departamento(idDepartamento,numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBaños,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);
+        Departamento departamento = new Departamento(idDepartamento,numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);
         this.agregarDepartamento(departamento);     
     }   
     
@@ -64,14 +64,9 @@ public class Edificio
    
     }
     //muestra lso departamentos en para cada edificio
-    public void mostrarDepartamento(){
-        int i;
-        for (i = 0; i < listaDepartamentos.size(); i++) {
-            System.out.println("Id:"+listaDepartamentos.get(i).getIdDepartamento()+" Numero Dpto: "+listaDepartamentos.get(i).getNumeroDpto()+", Orientacion: "+listaDepartamentos.get(i).getOrientacion()+", Valor(UF): "+listaDepartamentos.get(i).getValorDpto()+", Cantidad de baños: "+listaDepartamentos.get(i).getCantidadBaños()+", Cantidad de dormitorios: "+listaDepartamentos.get(i).getCantidadDormitorios()+", Metros cuadrado: "+listaDepartamentos.get(i).getMetrosCuadrados()+", Disponibilidad: "+listaDepartamentos.get(i).getDisponibilidadDpto());                    
-           
-        }
-        
-    }
+    public abstract void mostrarDepartamento();
+    
+    
     //busca departamentos por el id
     public boolean BuscarDepartamento(String idDepartamento){
         int i;
@@ -126,6 +121,8 @@ public class Edificio
         System.out.println("Sin coincidencias");
       }
     }
+    // Crear una funcion abstracta para listar los hoteles por sus estrellas
+    // Crear una funcion abstracta para listar moteles
     
     public boolean existeDepartamento(String idDepartamento){return departamentosId.containsKey(idDepartamento);}
     public Departamento buscarDepartamento(String idDepartamento){return departamentosId.get(idDepartamento);}

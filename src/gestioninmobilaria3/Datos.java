@@ -15,7 +15,7 @@ public class Datos{
     String localidadEdificio = lectura.readLine();
     System.out.println("Ingrese arquitecto del edificio");
     String arquitectoEdificio = lectura.readLine();         
-    if(administrador.agregarEdificio(nombreEdificio, direccionEdificio, localidadEdificio, arquitectoEdificio)){
+    if(administrador.agregarEdificio(nombreEdificio, direccionEdificio, localidadEdificio, arquitectoEdificio,3)){
       System.out.println("El edificio  "+nombreEdificio + " tiene el id: "+administrador.getEdificiosNombre().get(nombreEdificio).getIdEdificio());
     }
     else
@@ -44,14 +44,14 @@ public class Datos{
       System.out.println("Ingrese orientacion del departamento");
       String orientacion = lectura.readLine();
       System.out.println("Ingrese cantidad de banos del departamento");
-      int cantidadBaños = Integer.parseInt(lectura.readLine());
+      int cantidadBanos = Integer.parseInt(lectura.readLine());
       System.out.println("Ingrese cantidad de dormitorios del departamento");
       int cantidadDormitorios = Integer.parseInt(lectura.readLine());
       System.out.println("Ingrese los metros cuadrados del departamento");
       int metrosCuadrados = Integer.parseInt(lectura.readLine());  
       System.out.println("Si el departamento esta disponible escriba: disponible, de lo contrario escriba: vendido :");  
       String disponibilidadDpto = lectura.readLine();          
-      administrador.agregarDepartamentoAedificio(idEdificio, numeroPiso, numeroDpto, valorDpto, orientacion, cantidadBaños, cantidadDormitorios, metrosCuadrados,disponibilidadDpto);
+      administrador.agregarDepartamentoAedificio(idEdificio, numeroPiso, numeroDpto, valorDpto, orientacion, cantidadBanos, cantidadDormitorios, metrosCuadrados,disponibilidadDpto);
       return;
     }
     System.out.println("El edifcio ingresado no existe");
@@ -90,7 +90,7 @@ public class Datos{
     for(int i = 0; i<administrador.getListaEdificio().size();i++){
       if(administrador.getListaEdificio().get(i).getDepartamentosId().containsKey(idDepartamento)){
         System.out.println("id: Numero de piso     numero de departamento            valor en uf                 orientacion               cantidad de baños            cantidad de dormitorios       metro cuadrados       disponibilidad departamento");
-        System.out.println("     "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getIdDepartamento()+":            "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getNumeroPiso()+ "               "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getNumeroDpto()+"                              "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getValorDpto()+"                       "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getOrientacion()+"                         "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getCantidadBaños()+"                               "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getCantidadDormitorios()+"                          "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getMetrosCuadrados()+"                          "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getDisponibilidadDpto());  
+        System.out.println("     "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getIdDepartamento()+":            "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getNumeroPiso()+ "               "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getNumeroDpto()+"                              "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getValorDpto()+"                       "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getOrientacion()+"                         "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getCantidadBanos()+"                               "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getCantidadDormitorios()+"                          "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getMetrosCuadrados()+"                          "+administrador.getListaEdificio().get(i).getDepartamentosId().get(idDepartamento).getDisponibilidadDpto());  
         return;
       }
     }               
@@ -220,9 +220,9 @@ public class Datos{
 
       /*Llenado predeterminado*/
   public void cargarEdificios(Administrador administrador){
-    administrador.agregarEdificio("Viana Miramar","Viana 161","Viña del mar","Roberto Rau");
-    administrador.agregarEdificio("LADY","15 norte 242","Viña del mar","Mario Castañeda");
-    administrador.agregarEdificio("10 norte","10 norte 655","Viña del mar","Quiroz y Puelma Arquitectos");
+    administrador.agregarEdificio("Viana Miramar","Viana 161","Viña del mar","Roberto Rau",5);
+    administrador.agregarEdificio("LADY","15 norte 242","Viña del mar","Mario Castañeda",3);
+    administrador.agregarEdificio("10 norte","10 norte 655","Viña del mar","Quiroz y Puelma Arquitectos",1);
   } 
 //modifica el nombre de un edificio
   public void modificarNombreEdificio(Administrador administrador)throws IOException{

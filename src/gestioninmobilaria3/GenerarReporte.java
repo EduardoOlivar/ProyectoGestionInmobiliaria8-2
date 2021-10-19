@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gestioninmobilaria3;
 import java.io.*;
 import java.util.logging.Level;
@@ -69,7 +65,7 @@ public class GenerarReporte {
                rowDos.createCell(j+2).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getNumeroDpto()); 
                rowDos.createCell(j+3).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getValorDpto()); 
                rowDos.createCell(j+4).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getOrientacion()); 
-               rowDos.createCell(j+5).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getCantidadBaños()); 
+               rowDos.createCell(j+5).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getCantidadBanos()); 
                rowDos.createCell(j+6).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getCantidadDormitorios()); 
                rowDos.createCell(j+7).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getMetrosCuadrados()); 
                rowDos.createCell(j+8).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getDisponibilidadDpto()); 
