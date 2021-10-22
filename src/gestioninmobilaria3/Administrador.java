@@ -5,9 +5,9 @@ import java.io.*;
 
 public class Administrador {
     
-    private ArrayList<Edificio> listaEdificio; // lista de edificios
-    private HashMap<String,Edificio>edificiosId; // Mapa EdificiosId que facilita el buscado de edificio por su clave id   
-    private HashMap<String,Edificio>edificiosNombre;// Mapa edificiosNombre, buscamos por nombre de edificio. 
+    private ArrayList<Building> listaEdificio; // lista de edificios
+    private HashMap<String,Building>edificiosId; // Mapa EdificiosId que facilita el buscado de edificio por su clave id   
+    private HashMap<String,Building>edificiosNombre;// Mapa edificiosNombre, buscamos por nombre de edificio. 
     private int idAdministrador;
 
 
@@ -20,7 +20,7 @@ public class Administrador {
 
     }
     //metodo privado que agregarEdificios,verifica si ya existe el edificio. si no existe los agrega al mapa edficiosId y listaEdificios
-    private boolean agregarEdificio(Edificio edificio){
+    private boolean agregarEdificio(Building edificio){
         if(edificiosNombre.containsKey(edificio.getNombreEdificio())){
             return false;
         }
@@ -31,14 +31,29 @@ public class Administrador {
     }
     
     //metodo2 que recive la instancia de un edificio nuevo y lo envia por parametro al agregarEdicios metodo 1;
-    public boolean agregarEdificio(String nombre, String direccion, String localidad, String arquitecto,int estrellas){
+    public boolean agregarEdificio(String nombre, String direccion, String localidad, String arquitecto){
         this.idAdministrador = this.idAdministrador + 1;
-        Edificio nuevoEdificio = new Hotel(String.valueOf(idAdministrador),nombre,direccion,localidad,arquitecto,estrellas);
+        Edificio nuevoEdificio = new Edificio(String.valueOf(idAdministrador),nombre,direccion,localidad,arquitecto) ;
         if(this.agregarEdificio(nuevoEdificio))
             return true;
         return false;
     }
-   
+    
+    public boolean agregarEdificioHotel(String nombre, String direccion, String localidad, String arquitecto,int estrellas){
+        this.idAdministrador = this.idAdministrador + 1;
+        Hotel newhotel = new Hotel(String.valueOf(idAdministrador),nombre,direccion,localidad,arquitecto,estrellas);
+        if(this.agregarEdificio(newhotel))
+            return true;
+        return false;
+    }
+    
+    public boolean agregarEdificioMotel(String nombre, String direccion, String localidad, String arquitecto,int precioPorHoras){
+        this.idAdministrador = this.idAdministrador + 1;
+        Motel newmotel = new Motel(String.valueOf(idAdministrador),nombre,direccion,localidad,arquitecto,precioPorHoras);
+        if(this.agregarEdificio(newmotel))
+            return true;
+        return false;
+    } 
     public void modificarNombreEdificio(String nombre, String idEdificio){
         for (int i = 0; i < listaEdificio.size(); i++) {
             if(listaEdificio.get(i).getIdEdificio().equals(idEdificio)){
@@ -107,7 +122,7 @@ public class Administrador {
     public boolean existeEdifcio(String idEdificio){return edificiosId.containsKey(idEdificio);}
     
     // elimina edificio a partir de su id
-    public Edificio  eliminarEdificioDeAdministrador(String idEdificio){
+    public Building  eliminarEdificioDeAdministrador(String idEdificio){
         if(!edificiosId.containsKey(idEdificio)){
             System.out.println("No existe un Edificio con el id ingresado");
             return null;
@@ -115,7 +130,7 @@ public class Administrador {
         }
         if(listaEdificio.size()<2){
             System.out.println("no existe otro edificio, por lo que todos los datos seran eliminados");
-            Edificio edificioEliminado = edificiosId.remove(idEdificio);
+            Building edificioEliminado = edificiosId.remove(idEdificio);
             int i;
             for (i = 0; i < listaEdificio.size(); i++) {
                 if(listaEdificio.get(i).getIdEdificio().equals(idEdificio)){
@@ -128,7 +143,7 @@ public class Administrador {
                 return edificioEliminado;
             
         }
-        Edificio edificioEliminado = edificiosId.remove(idEdificio);
+        Building edificioEliminado = edificiosId.remove(idEdificio);
         int i;
         for ( i = 0; i < listaEdificio.size(); i++) {
             //se busca edificio en la lista para luego eliminarlo
@@ -162,7 +177,7 @@ public class Administrador {
                     System.out.println("La lista de Departamentos está vacía");
                     return;
                 }
-                    System.out.println("Id del edificio: "+listaEdificio.get(i).getIdEdificio()+", Departamentos en el edificio "+listaEdificio.get(i).getNombreEdificio());
+                    System.out.println("Id: "+listaEdificio.get(i).getIdEdificio()+", Departamentos en el edificio "+listaEdificio.get(i).getNombreEdificio());
                     listaEdificio.get(i).mostrarDepartamento();
             }
         }
@@ -187,9 +202,9 @@ public class Administrador {
     }
     
     //getter
-    public ArrayList<Edificio> getListaEdificio() {return listaEdificio;}
-    public HashMap<String,Edificio>getEdificiosNombre(){return edificiosNombre;}
-    public HashMap<String,Edificio>getEdificiosId(){return edificiosId;}
+    public ArrayList<Building> getListaEdificio() {return listaEdificio;}
+    public HashMap<String,Building>getEdificiosNombre(){return edificiosNombre;}
+    public HashMap<String,Building>getEdificiosId(){return edificiosId;}
     public int getIdAdministrador() {return idAdministrador;}
     //setter
     public void setIdAdministrador(int idAdministrador) {this.idAdministrador = idAdministrador;}

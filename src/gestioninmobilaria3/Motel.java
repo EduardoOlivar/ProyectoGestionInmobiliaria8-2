@@ -1,11 +1,11 @@
 package gestioninmobilaria3;
 
-public class Motel extends Edificio{
-    private int duracionEstancia;
+public class Motel extends Building{
+    private int precioXhora;
 
     public Motel(String idEdificio, String nombreEdificio, String direccionEdificio, String localidadEdificio, String arquitectoEdificio, int duracionEstancia) {
         super(idEdificio, nombreEdificio, direccionEdificio, localidadEdificio, arquitectoEdificio);
-        this.duracionEstancia = duracionEstancia;
+        this.precioXhora = duracionEstancia;
     }
     public void mostrarDepartamento()
     {
@@ -16,7 +16,7 @@ public class Motel extends Edificio{
         }
     }
     
-    public int getDuracionEstancia(){ return duracionEstancia;}
+    public int getPrecioXHora(){ return precioXhora;}
     
-    public void setDuracionEstancia(int duracionEstancia){this.duracionEstancia = duracionEstancia;}
+    public void setPrecioXHora(int precioXHora){this.precioXhora = precioXhora;}
 }

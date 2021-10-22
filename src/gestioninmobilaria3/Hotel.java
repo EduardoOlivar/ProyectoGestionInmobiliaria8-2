@@ -1,6 +1,6 @@
 package gestioninmobilaria3;
 
-public class Hotel extends Edificio{
+public class Hotel extends Building{
     private int cantidadEstrellas;
 
     public Hotel(String idEdificio, String nombreEdificio, String direccionEdificio, String localidadEdificio, String arquitectoEdificio, int cantidadEstrellas) {
