@@ -19,7 +19,7 @@ public class Menu extends JFrame{
       System.out.println("(1)  Agregar Edificio");
       System.out.println("(2)  Agregar Departamento");
       System.out.println("(3)  Mostrar listado de Edificios");
-      System.out.println("(4)  Mostrar todos los departamentos");
+      System.out.println("(4)  Mostrar listado de departamentos en Edificio ");
       System.out.println("(5)  Eliminar Edificio");
       System.out.println("(6)  Buscar Departamento");
       System.out.println("(7)  Modificar nombre de Edificio");
@@ -59,15 +59,39 @@ public class Menu extends JFrame{
             }while (opcion != 4);
           break;
         case "2":
-          gestionDatos.agregarDepartamento(administrador);
+           do {
+              System.out.println("Ingrese la opción que desea agregar");
+              System.out.println("(1)  Departamentos a Edificios");
+              System.out.println("(2)  Departamentos a Hoteles");
+              System.out.println("(3)  Departamentos a Moteles");
+              System.out.println("(4)  Salir al menú principal");
+              opcion = Integer.parseInt(lectura.readLine());
+          switch(opcion){
+              case 1: 
+                    gestionDatos.agregarDepartamento(administrador,1);
+                    break;
+              case 2: 
+                    gestionDatos.agregarDepartamento(administrador,2);
+                    break;
+              case 3:
+                    gestionDatos.agregarDepartamento(administrador,3);
+                    break;
+              case 4:
+                    System.out.println("Volviendo al menú principal");
+                    break;
+              default:          
+                    System.out.println("La opcion ingresada no es valida");              
+                    break;
+            }          
+            }while (opcion != 4);
           break;
         case "3":
           do {
-              System.out.println("--Menu de Hoteles y Moteles");
+              System.out.println("--Menu de Edificios, Hoteles y Moteles");
               System.out.println("(1)  Edificios");
               System.out.println("(2)  Hoteles");
               System.out.println("(3)  Moteles");
-              System.out.println("(4)  Salir");
+              System.out.println("(4)  Volver al menú principal");
               opcion = Integer.parseInt(lectura.readLine());
           switch(opcion){
               case 1: 
@@ -80,7 +104,7 @@ public class Menu extends JFrame{
                     gestionDatos.mostrarListadoDeEdifcios(administrador,3);
                     break;
               case 4:
-                    System.out.println("Volviendo al menu principal");
+                    System.out.println("Volviendo al menú principal");
                     break;
               default:          
                     System.out.println("La opcion ingresada no es valida");              
@@ -89,7 +113,31 @@ public class Menu extends JFrame{
         }while (opcion != 4);
           break;
         case "4":
-          gestionDatos.mostrarTodosLosDepartamentos(administrador);   
+          do{
+              System.out.println("Menu de Edificios, Hoteles y Moteles");
+              System.out.println("(1)  Lista de departamentos en Edificios");
+              System.out.println("(2)  Lista de departamentos en Hoteles");
+              System.out.println("(3)  Lista de departamentos en Moteles");
+              System.out.println("(4)  Volver al menú principal");
+              opcion = Integer.parseInt(lectura.readLine());
+          switch(opcion){
+              case 1: 
+                    gestionDatos.mostrarTodosLosDepartamentos(administrador,1);
+                    break;
+              case 2: 
+                    gestionDatos.mostrarTodosLosDepartamentos(administrador,2);
+                    break;
+              case 3:
+                    gestionDatos.mostrarTodosLosDepartamentos(administrador,3);
+                    break;
+              case 4:
+                    System.out.println("Volviendo al menú principal");
+                    break;
+              default:          
+                    System.out.println("La opcion ingresada no es valida");              
+                    break;
+            }          
+        }while (opcion != 4);
           break;
         case "5":
           gestionDatos.eliminarUnEdificio(administrador);
@@ -115,7 +163,7 @@ public class Menu extends JFrame{
             System.out.println("(6)  Sur");
             System.out.println("(7)  SurOeste");
             System.out.println("(8)  SurEste");
-            System.out.println("(9)  Devolverse al menu anterior");
+            System.out.println("(9)  Devolverse al menú anterior");
             opcion = Integer.parseInt(lectura.readLine());
           
           switch(opcion){

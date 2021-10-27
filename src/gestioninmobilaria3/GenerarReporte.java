@@ -55,7 +55,7 @@ public class GenerarReporte {
         rowDos.createCell(5).setCellValue("Cantidad de baños");
         rowDos.createCell(6).setCellValue("Cantidad de dormitorios ");
         rowDos.createCell(7).setCellValue("Metro cuadrados");
-        rowDos.createCell(8).setCellValue("Disponibilidad departamento");               
+        //rowDos.createCell(8).setCellValue("Disponibilidad departamento");               
         k=k+1;
                       
             do {
@@ -68,7 +68,7 @@ public class GenerarReporte {
                rowDos.createCell(j+5).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getCantidadBanos()); 
                rowDos.createCell(j+6).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getCantidadDormitorios()); 
                rowDos.createCell(j+7).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getMetrosCuadrados()); 
-               rowDos.createCell(j+8).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getDisponibilidadDpto()); 
+               //rowDos.createCell(j+8).setCellValue(administrador.getListaEdificio().get(l).getDepartamentos().get(i).getDisponibilidadDpto()); 
                i=i+1;
                k=k+1;  
             } while (i<administrador.getListaEdificio().get(l).getDepartamentos().size());                

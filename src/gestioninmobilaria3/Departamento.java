@@ -1,4 +1,5 @@
 package gestioninmobilaria3;
+
 public class Departamento {
     private String idDepartamento;
     private String numeroPiso;
@@ -11,7 +12,6 @@ public class Departamento {
     private String disponibilidadDpto;
     
     //constructor
-    public Departamento(){} 
     
     public Departamento(String idDepartamento,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados, String disponibilidadDpto) {
         this.idDepartamento = idDepartamento;

@@ -12,11 +12,13 @@ public class Hotel extends Building{
     
     public void mostrarDepartamento()
     {
-        int i;
-        for (i = 0; i < super.getDepartamentos().size(); i++) {
-            System.out.println("Id:"+super.getDepartamentos().get(i).getIdDepartamento()+" Numero Dpto: "+super.getDepartamentos().get(i).getNumeroDpto()+", Orientacion: "+super.getDepartamentos().get(i).getOrientacion()+", Valor(UF): "+super.getDepartamentos().get(i).getValorDpto()+", Cantidad de baños: "+super.getDepartamentos().get(i).getCantidadBanos()+", Cantidad de dormitorios: "+super.getDepartamentos().get(i).getCantidadDormitorios()+", Metros cuadrado: "+super.getDepartamentos().get(i).getMetrosCuadrados()+", Disponibilidad: "+super.getDepartamentos().get(i).getDisponibilidadDpto());                    
+        for (Departamento depa : super.getDepartamentos()) {
+            if(depa instanceof DepartamentoArrendado){
+                DepartamentoArrendado newdepa = (DepartamentoArrendado)depa;
+                System.out.println("Id:"+newdepa.getIdDepartamento()+" Numero Dpto: "+newdepa.getNumeroDpto()+", Orientacion: "+newdepa.getOrientacion()+", Valor(UF): "+newdepa.getValorDpto()+", Cantidad de baños: "+newdepa.getCantidadBanos()+", Cantidad de dormitorios: "+newdepa.getCantidadDormitorios()+", Metros cuadrado: "+newdepa.getMetrosCuadrados() +"Días arrendados"+ newdepa.getCantidadDiasArriendo()/*+", Disponibilidad: "+super.getDepartamentos().get(i).getDisponibilidadDpto()*/);                    
            
-        }
+            }
+        } 
     }
     public int getCantidadEstrellas() {return cantidadEstrellas;}
 

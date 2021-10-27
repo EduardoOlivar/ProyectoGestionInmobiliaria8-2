@@ -31,9 +31,9 @@ public class Administrador {
     }
     
     //metodo2 que recive la instancia de un edificio nuevo y lo envia por parametro al agregarEdicios metodo 1;
-    public boolean agregarEdificio(String nombre, String direccion, String localidad, String arquitecto){
+    public boolean agregarEdificioEdificio(String nombre, String direccion, String localidad, String arquitecto,String nombreConserje){
         this.idAdministrador = this.idAdministrador + 1;
-        Edificio nuevoEdificio = new Edificio(String.valueOf(idAdministrador),nombre,direccion,localidad,arquitecto) ;
+        Edificio nuevoEdificio = new Edificio(String.valueOf(idAdministrador),nombre,direccion,localidad,arquitecto,nombreConserje) ;
         if(this.agregarEdificio(nuevoEdificio))
             return true;
         return false;
@@ -98,7 +98,25 @@ public class Administrador {
         }
     }
     //agrega departamento a edificio especifico
-    public void agregarDepartamentoAedificio(String idEdificio,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados, String disponibilidadDpto){
+    public void agregarDepartamentoAEdificio(String idEdificio,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados,String disponibilidadDpto){
+        if(edificiosId.containsKey(idEdificio)){      
+            int idDpto = 0;
+            for (int i = 0; i<listaEdificio.size(); i++) {
+                for (int j = 0; j < listaEdificio.get(i).getDepartamentos().size(); j++) {
+                    if(existeDepartamento(String.valueOf(idDpto))){
+                        idDpto = idDpto + 1;
+                    }
+                    else
+                        break;
+                }
+            }   
+            Departamento nuevoDepartamento = new Departamento(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);             
+            edificiosId.get(idEdificio).agregarDepartamentoEdificio(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);
+            return;           
+        }
+    }
+    
+    public void agregarDepartamentoAHotel(String idEdificio,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados,String disponibilidadDpto,int cantidadDiasArrendado){
         if(edificiosId.containsKey(idEdificio)){      
             int idDpto = 0;
             for (int i = 0; i<listaEdificio.size(); i++) {
@@ -111,8 +129,26 @@ public class Administrador {
                 }
             }
           
-            Departamento nuevoDepartamento = new Departamento(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);                
-            edificiosId.get(idEdificio).agregarDepartamento(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);
+            DepartamentoArrendado nuevoDepartamento = new DepartamentoArrendado(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto,cantidadDiasArrendado);            
+            edificiosId.get(idEdificio).agregarDepartamentoHotel(String.valueOf(idDpto), numeroPiso, numeroDpto, valorDpto, orientacion, cantidadBanos, cantidadDormitorios, metrosCuadrados,disponibilidadDpto ,cantidadDiasArrendado);
+            return;           
+        }
+    }
+    public void agregarDepartamentoAMotel(String idEdificio,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados,String disponibilidadDpto, String tematica){
+        if(edificiosId.containsKey(idEdificio)){      
+            int idDpto = 0;
+            for (int i = 0; i<listaEdificio.size(); i++) {
+                for (int j = 0; j < listaEdificio.get(i).getDepartamentos().size(); j++) {
+                    if(existeDepartamento(String.valueOf(idDpto))){
+                        idDpto = idDpto + 1;
+                    }
+                    else
+                        break;
+                }
+            }
+          
+            DepartamentoTematica nuevoDepartamento = new DepartamentoTematica(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto,tematica);                
+            edificiosId.get(idEdificio).agregarDepartamentoMotel(String.valueOf(idDpto),numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados, disponibilidadDpto,tematica);
             return;           
         }
     }
@@ -166,7 +202,7 @@ public class Administrador {
 
     }
     
-    //muestra todos los departamentos en la lista
+        //muestra todos los departamentos en la lista
     public void mostrarTodosLosDepartamentos(){
         if(listaEdificio.isEmpty() ){
             System.out.println("No existen departamentos");
@@ -177,9 +213,56 @@ public class Administrador {
                     System.out.println("La lista de Departamentos está vacía");
                     return;
                 }
-                    System.out.println("Id: "+listaEdificio.get(i).getIdEdificio()+", Departamentos en el edificio "+listaEdificio.get(i).getNombreEdificio());
+                    System.out.println("Id: "+listaEdificio.get(i).getIdEdificio()+", Departamentos en "+listaEdificio.get(i).getNombreEdificio());
                     listaEdificio.get(i).mostrarDepartamento();
             }
+        }
+    }
+    
+    //muestra todos lso departamentos que hay dentro de la lista a la que se llama puede ser edificio, hotel, o motel.
+    public void mostrarTodosLosDepartamentos(int opcion)
+    {
+        if(listaEdificio.isEmpty() ){
+            System.out.println("No existen departamentos");
+        }
+        else
+        {
+            if (opcion == 1)
+            {
+                for (Building edificio : listaEdificio) 
+                {                    
+                    if(edificio instanceof Edificio)
+                    {
+                        Edificio newedificio = (Edificio)edificio;
+                        System.out.println("Id: "+newedificio.getIdEdificio()+", Departamentos en "+newedificio.getNombreEdificio());
+                        newedificio.mostrarDepartamento();
+                    }
+                }
+            }
+            if (opcion == 2)
+            {
+                for (Building edificio : listaEdificio) 
+                {
+                    if(edificio instanceof Hotel)
+                    {
+                        Hotel hotel = (Hotel)edificio;
+                        System.out.println("Id: "+hotel.getIdEdificio()+", Departamentos en "+hotel.getNombreEdificio());
+                        hotel.mostrarDepartamento();
+                    }
+                }
+            }
+            if (opcion == 3)
+            {
+                for (Building edificio : listaEdificio) 
+                {
+                    if(edificio instanceof Motel)
+                    {
+                        Motel motel = (Motel)edificio;
+                        System.out.println("Id: "+motel.getIdEdificio()+", Departamentos en "+motel.getNombreEdificio());
+                        motel.mostrarDepartamento();
+                    }
+                  }
+            }                       
         }
     }
     /* Funcion para mostrar los dptos por precio */
@@ -187,7 +270,7 @@ public class Administrador {
     {
       for(int i = 0 ; i < listaEdificio.size(); i++)
       {
-          System.out.println("En el edificio "+ listaEdificio.get(i).getNombreEdificio());
+          System.out.println("En "+ listaEdificio.get(i).getNombreEdificio());
           listaEdificio.get(i).mostrarDptosPorPrecios(valorInicial, valorFinal);
       }
     }
@@ -196,9 +279,14 @@ public class Administrador {
     {
       for(int i = 0 ;i <  listaEdificio.size();i++)
       {
-        System.out.println("En el edificio "+ listaEdificio.get(i).getNombreEdificio());
+        System.out.println("En "+ listaEdificio.get(i).getNombreEdificio());
         listaEdificio.get(i).mostrarDptosPorOrientacion(orientacion);
       }
+    }
+    
+    public void disponibilidadDepartamento(Disponibilidad disponible)
+    {
+        disponible.cambiarDisponibilidad();        
     }
     
     //getter

@@ -13,7 +13,7 @@ public abstract class Building
     private HashMap<String,Departamento>departamentosId; //mapa departamentosId que facilita la bisqueda de un departamento por id;
 
     //constructor
-    
+    public Building(){}
     public Building(String idEdificio ,String nombreEdificio, String direccionEdificio, String localidadEdificio, String arquitectoEdificio)
     {
         this.idEdificio = idEdificio;
@@ -37,13 +37,22 @@ public abstract class Building
         listaDepartamentos.add(departamento);
     }
     
-    /*metodo 2 que que llama 1 al primer metodo agregar departamento para mandarle la instancia de este*/
-    public void agregarDepartamento(String idDepartamento,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados, String disponibilidadDpto)
+       /*metodo 2 que que llama 1 al primer metodo agregar departamento para mandarle la instancia de este*/
+    public void agregarDepartamentoEdificio(String idDepartamento,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados, String disponibilidadDpto)
     {
         Departamento departamento = new Departamento(idDepartamento,numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto);
         this.agregarDepartamento(departamento);     
-    }   
-    
+    } 
+    public void agregarDepartamentoHotel(String idDepartamento,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados,String disponibilidadDpto,int cantidadDiasArrendado)
+    {
+        DepartamentoArrendado departamento = new DepartamentoArrendado(idDepartamento,numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto,cantidadDiasArrendado);
+        this.agregarDepartamento(departamento);     
+    }     
+    public void agregarDepartamentoMotel(String idDepartamento,String numeroPiso,String numeroDpto, String valorDpto, String orientacion, int cantidadBanos, int cantidadDormitorios, double metrosCuadrados,String disponibilidadDpto ,String tematica)
+    {
+        DepartamentoTematica departamento = new DepartamentoTematica(idDepartamento,numeroPiso,numeroDpto,valorDpto,orientacion,cantidadBanos,cantidadDormitorios,metrosCuadrados,disponibilidadDpto,tematica);
+        this.agregarDepartamento(departamento);     
+    } 
     public void eliminarDepartamento(){
              departamentosId = new HashMap();
              listaDepartamentos = new ArrayList();
@@ -51,7 +60,7 @@ public abstract class Building
     
     public void eliminarDepartamento(String idDepartamento){
         if (!departamentosId.containsKey(idDepartamento)) {
-            System.out.println("No existe un departaemento con el id ingresado");
+            System.out.println("No existe un departamento con el id ingresado");
             return;
         }
         departamentosId.remove(idDepartamento);
@@ -95,7 +104,7 @@ public abstract class Building
       {
         if((Integer.parseInt(listaDepartamentos.get(i).getValorDpto()) >= valorInicio) && (Integer.parseInt(listaDepartamentos.get(i).getValorDpto()) <= valorFinal))
         {
-          System.out.println("el departamento, con id "+listaDepartamentos.get(i).getIdDepartamento()+ " tiene el valor de " + listaDepartamentos.get(i).getValorDpto()+"UF");
+          System.out.println("El departamento, con id "+listaDepartamentos.get(i).getIdDepartamento()+ " tiene el valor de " + listaDepartamentos.get(i).getValorDpto()+"UF");
           existe = true;
         }
       }
