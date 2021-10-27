@@ -209,7 +209,38 @@ public class Datos{
   public void mostrarTodosLosDepartamentos(Administrador administrador, int opcion){
     administrador.mostrarTodosLosDepartamentos(opcion);
   } 
-  
+
+/* metodo para mostrar la disponibilidad de los departamentos en cada lista respectivamente a su opcion */
+  public void infoDisponiblidad(Administrador administrador, int opcion){
+      if(opcion == 2){
+        for(Building edificio : administrador.getListaEdificio()){
+            if(edificio instanceof Hotel){
+                Hotel hotel = (Hotel)edificio;
+                hotel.estadoDepartamento();
+            }
+        }
+        return;
+      }
+      if(opcion == 1)
+      {
+        for(Building edificio : administrador.getListaEdificio()){
+            if(edificio instanceof Edificio){
+                Edificio newedificio = (Edificio)edificio;
+                newedificio.estadoDepartamento();
+            }
+        }
+        return;
+      }   
+      if(opcion == 3)
+      {
+        for(Building edificio : administrador.getListaEdificio()){
+            if(edificio instanceof Motel){
+                Motel newMotel = (Motel)edificio;
+                newMotel.estadoDepartamento();
+            }
+        }          
+      }       
+  }  
 
   /*busca el departamento a partir de la id ingresada*/
   public void buscarDepartamento(Administrador administrador)throws IOException{

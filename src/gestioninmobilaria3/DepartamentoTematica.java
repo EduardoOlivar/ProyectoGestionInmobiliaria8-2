@@ -8,7 +8,13 @@ public class DepartamentoTematica extends Departamento{
         super(idDepartamento, numeroPiso, numeroDpto, valorDpto, orientacion, cantidadBanos, cantidadDormitorios, metrosCuadrados,disponibilidadDpto);
         this.tematicaDePieza = tematicaDePieza;
     }
-
+    @Override
+    public String getInfoEstadoDepartamento() {
+        if(super.getDisponibilidadDpto().equals("Disponible"))
+            return "Disponible";
+        return "Ocupado";
+        
+    }  
      
      public String getTematicaDePieza(){return tematicaDePieza;}
      

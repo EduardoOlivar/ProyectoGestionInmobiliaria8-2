@@ -20,6 +20,14 @@ public class Hotel extends Building{
             }
         } 
     }
+    public void estadoDepartamento(){
+         for (Departamento departamento : super.getDepartamentos() ) {
+            if(departamento instanceof DepartamentoArrendado){
+                DepartamentoArrendado newDepartamento = (DepartamentoArrendado)departamento;
+                System.out.println("El departamento del Hotel "+super.getNombreEdificio()+" con ID "+newDepartamento.getIdDepartamento()+" se encuentra "+newDepartamento.getInfoEstadoDepartamento());
+            }
+        }       
+    }
     public int getCantidadEstrellas() {return cantidadEstrellas;}
 
     public void setCantidadEstrellas(int cantidadEstrellas) {this.cantidadEstrellas = cantidadEstrellas;}

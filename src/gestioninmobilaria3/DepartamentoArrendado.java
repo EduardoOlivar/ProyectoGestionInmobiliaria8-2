@@ -11,6 +11,13 @@ public class DepartamentoArrendado extends Departamento{
         this.cantidadDiasArrendado = cantidadDiasArrendado;
     }
 
+    @Override
+    public String getInfoEstadoDepartamento() {
+        if(cantidadDiasArrendado != 0)
+            return "Arrendado";
+        return "Disponible";
+        
+    }   
      public int getCantidadDiasArriendo(){return cantidadDiasArrendado;}
      
      public void setCantidadDiasArriendo(int cantidadDiasArriendo){ this.cantidadDiasArrendado = cantidadDiasArrendado;}

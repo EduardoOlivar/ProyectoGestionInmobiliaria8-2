@@ -17,6 +17,14 @@ public class Motel extends Building{
             }
         }    
     }
+    public void estadoDepartamento(){
+         for (Departamento departamento : super.getDepartamentos() ) {
+            if(departamento instanceof DepartamentoTematica){
+                DepartamentoTematica newDepartamento = (DepartamentoTematica)departamento;
+                System.out.println("El departamento del Motel "+super.getNombreEdificio()+" con ID "+newDepartamento.getIdDepartamento()+" se encuentra "+newDepartamento.getInfoEstadoDepartamento());
+            }
+        }       
+    }  
     
     public int getPrecioXHora(){ return precioXhora;}
     

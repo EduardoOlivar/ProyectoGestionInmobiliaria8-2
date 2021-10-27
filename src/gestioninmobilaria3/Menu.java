@@ -26,6 +26,7 @@ public class Menu extends JFrame{
       System.out.println("(8)  Mostrar Departamentos por rango de precios");
       System.out.println("(9)  Mostrar Departamentos por Orientacion");
       System.out.println("(10) Eliminar Departamento");
+      System.out.println("(11) Informes de disponiblilidad de Departamentos");
       System.out.println("presione x para salir");
             
       String eleccion = lectura.readLine();
@@ -203,6 +204,33 @@ public class Menu extends JFrame{
         case "10":
             gestionDatos.eliminarUnDepartamento(administrador);
             break;
+        case "11":
+          do {
+            System.out.println("--Menu de informes Edificios, Hoteles y Moteles--");
+            System.out.println("(1)  Informe disponibilidad en Edificios");
+            System.out.println("(2)  Informe disponibilidad en Hoteles");
+            System.out.println("(3)  Informe disponibilidad en Moteles");              
+            System.out.println("(4)  Salir al menú principal");
+            opcion = Integer.parseInt(lectura.readLine());
+          switch(opcion){
+              case 1: 
+                    gestionDatos.infoDisponiblidad(administrador, 1);
+                    break;
+              case 2: 
+                    gestionDatos.infoDisponiblidad(administrador,2);
+                    break;
+              case 3:
+                    gestionDatos.infoDisponiblidad(administrador,3);
+                    break;
+              case 4:
+                    System.out.println("Volviendo al menu principal");
+                    break;                    
+              default:          
+                    System.out.println("La opcion ingresada no es valida");              
+                    break;
+            }          
+        }while (opcion != 4);
+        break;            
         case "x":
           System.out.println("Nos vemos!");
           generarReporte.crearReporte(administrador);

@@ -282,13 +282,8 @@ public class Administrador {
         System.out.println("En "+ listaEdificio.get(i).getNombreEdificio());
         listaEdificio.get(i).mostrarDptosPorOrientacion(orientacion);
       }
-    }
-    
-    public void disponibilidadDepartamento(Disponibilidad disponible)
-    {
-        disponible.cambiarDisponibilidad();        
-    }
-    
+    }    
+
     //getter
     public ArrayList<Building> getListaEdificio() {return listaEdificio;}
     public HashMap<String,Building>getEdificiosNombre(){return edificiosNombre;}

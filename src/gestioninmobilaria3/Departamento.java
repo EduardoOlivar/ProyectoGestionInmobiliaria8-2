@@ -1,6 +1,6 @@
 package gestioninmobilaria3;
 
-public class Departamento {
+public class Departamento implements InformeDepartamento{
     private String idDepartamento;
     private String numeroPiso;
     private String numeroDpto;
@@ -24,6 +24,13 @@ public class Departamento {
         this.metrosCuadrados = metrosCuadrados;
         this.disponibilidadDpto = disponibilidadDpto;
     }
+    @Override
+    public String getInfoEstadoDepartamento() {
+        if(disponibilidadDpto.equals("Disponible"))
+            return "Disponible";
+        return "Vendido";
+        
+    } 
  
     
     

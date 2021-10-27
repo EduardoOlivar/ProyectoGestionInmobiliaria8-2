@@ -21,6 +21,14 @@ public class Edificio extends Building{
             }
         } 
     }
+    public void estadoDepartamento(){
+         for (Departamento departamento : super.getDepartamentos() ) {
+            if(departamento instanceof Departamento){
+                Departamento newDepartamento = (Departamento)departamento;
+                System.out.println("El departamento del Edifico "+super.getNombreEdificio()+" con ID "+newDepartamento.getIdDepartamento()+" se encuentra "+newDepartamento.getInfoEstadoDepartamento());
+            }
+        }       
+    }
 
     public String getNombreConserje() {
         return nombreConserje;
