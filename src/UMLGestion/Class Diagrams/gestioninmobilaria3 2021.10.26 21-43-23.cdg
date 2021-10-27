@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="gestioninmobilaria3">
+  <ClassDiagramComponents>
+    <Class name="Administrador" package="gestioninmobilaria3" visibility="public" xPosition="359.0" yPosition="35.0">
+      <Fields>
+        <Field name="listaEdificio" type="ArrayList&lt;Building&gt;" visibility="private"/>
+        <Field name="edificiosId" type="HashMap&lt;String, Building&gt;" visibility="private"/>
+        <Field name="edificiosNombre" type="HashMap&lt;String, Building&gt;" visibility="private"/>
+        <Field name="idAdministrador" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="agregarEdificio" returnType="boolean" visibility="private">
+          <Argument type="Building" name="edificio"/>
+        </Method>
+        <Method name="agregarEdificioEdificio" returnType="boolean" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="direccion"/>
+          <Argument type="String" name="localidad"/>
+          <Argument type="String" name="arquitecto"/>
+          <Argument type="String" name="nombreConserje"/>
+        </Method>
+        <Method name="agregarEdificioHotel" returnType="boolean" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="direccion"/>
+          <Argument type="String" name="localidad"/>
+          <Argument type="String" name="arquitecto"/>
+          <Argument type="int" name="estrellas"/>
+        </Method>
+        <Method name="agregarEdificioMotel" returnType="boolean" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="direccion"/>
+          <Argument type="String" name="localidad"/>
+          <Argument type="String" name="arquitecto"/>
+          <Argument type="int" name="precioPorHoras"/>
+        </Method>
+        <Method name="modificarNombreEdificio" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="idEdificio"/>
+        </Method>
+        <Method name="existeDepartamento" returnType="boolean" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+        </Method>
+        <Method name="existeDepartamento" returnType="boolean" visibility="public"/>
+        <Method name="BuscarDepartamento" returnType="boolean" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+        </Method>
+        <Method name="agregarDepartamentoAEdificio" returnType="void" visibility="public">
+          <Argument type="String" name="idEdificio"/>
+          <Argument type="String" name="numeroPiso"/>
+          <Argument type="String" name="numeroDpto"/>
+          <Argument type="String" name="valorDpto"/>
+          <Argument type="String" name="orientacion"/>
+          <Argument type="int" name="cantidadBanos"/>
+          <Argument type="int" name="cantidadDormitorios"/>
+          <Argument type="double" name="metrosCuadrados"/>
+          <Argument type="String" name="disponibilidadDpto"/>
+        </Method>
+        <Method name="agregarDepartamentoAHotel" returnType="void" visibility="public">
+          <Argument type="String" name="idEdificio"/>
+          <Argument type="String" name="numeroPiso"/>
+          <Argument type="String" name="numeroDpto"/>
+          <Argument type="String" name="valorDpto"/>
+          <Argument type="String" name="orientacion"/>
+          <Argument type="int" name="cantidadBanos"/>
+          <Argument type="int" name="cantidadDormitorios"/>
+          <Argument type="double" name="metrosCuadrados"/>
+          <Argument type="String" name="disponibilidadDpto"/>
+          <Argument type="int" name="cantidadDiasArrendado"/>
+        </Method>
+        <Method name="agregarDepartamentoAMotel" returnType="void" visibility="public">
+          <Argument type="String" name="idEdificio"/>
+          <Argument type="String" name="numeroPiso"/>
+          <Argument type="String" name="numeroDpto"/>
+          <Argument type="String" name="valorDpto"/>
+          <Argument type="String" name="orientacion"/>
+          <Argument type="int" name="cantidadBanos"/>
+          <Argument type="int" name="cantidadDormitorios"/>
+          <Argument type="double" name="metrosCuadrados"/>
+          <Argument type="String" name="disponibilidadDpto"/>
+          <Argument type="String" name="tematica"/>
+        </Method>
+        <Method name="vacio" returnType="boolean" visibility="public"/>
+        <Method name="existeEdifcio" returnType="boolean" visibility="public">
+          <Argument type="String" name="idEdificio"/>
+        </Method>
+        <Method name="eliminarEdificioDeAdministrador" returnType="Building" visibility="public">
+          <Argument type="String" name="idEdificio"/>
+        </Method>
+        <Method name="eliminarDepartamentoEnEdificio" returnType="void" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+          <Argument type="String" name="idEdificio"/>
+        </Method>
+        <Method name="mostrarTodosLosDepartamentos" returnType="void" visibility="public"/>
+        <Method name="mostrarTodosLosDepartamentos" returnType="void" visibility="public">
+          <Argument type="int" name="opcion"/>
+        </Method>
+        <Method name="mostrarDepartamentosPorPrecios" returnType="void" visibility="public">
+          <Argument type="int" name="valorInicial"/>
+          <Argument type="int" name="valorFinal"/>
+        </Method>
+        <Method name="mostrarOrientacionDepartamentos" returnType="void" visibility="public">
+          <Argument type="String" name="orientacion"/>
+        </Method>
+        <Method name="getListaEdificio" returnType="ArrayList&lt;Building&gt;" visibility="public"/>
+        <Method name="getEdificiosNombre" returnType="HashMap&lt;String, Building&gt;" visibility="public"/>
+        <Method name="getEdificiosId" returnType="HashMap&lt;String, Building&gt;" visibility="public"/>
+        <Method name="getIdAdministrador" returnType="int" visibility="public"/>
+        <Method name="setIdAdministrador" returnType="void" visibility="public">
+          <Argument type="int" name="idAdministrador"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Building" package="gestioninmobilaria3" visibility="public" isAbstract="true" xPosition="674.0" yPosition="35.0">
+      <Fields>
+        <Field name="idEdificio" type="String" visibility="private"/>
+        <Field name="nombreEdificio" type="String" visibility="private"/>
+        <Field name="direccionEdificio" type="String" visibility="private"/>
+        <Field name="localidadEdificio" type="String" visibility="private"/>
+        <Field name="arquitectoEdificio" type="String" visibility="private"/>
+        <Field name="listaDepartamentos" type="ArrayList&lt;Departamento&gt;" visibility="private"/>
+        <Field name="departamentosId" type="HashMap&lt;String, Departamento&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="idEdificio"/>
+          <Argument type="String" name="nombreEdificio"/>
+          <Argument type="String" name="direccionEdificio"/>
+          <Argument type="String" name="localidadEdificio"/>
+          <Argument type="String" name="arquitectoEdificio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregarDepartamento" returnType="void" visibility="private">
+          <Argument type="Departamento" name="departamento"/>
+        </Method>
+        <Method name="agregarDepartamentoEdificio" returnType="void" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+          <Argument type="String" name="numeroPiso"/>
+          <Argument type="String" name="numeroDpto"/>
+          <Argument type="String" name="valorDpto"/>
+          <Argument type="String" name="orientacion"/>
+          <Argument type="int" name="cantidadBanos"/>
+          <Argument type="int" name="cantidadDormitorios"/>
+          <Argument type="double" name="metrosCuadrados"/>
+          <Argument type="String" name="disponibilidadDpto"/>
+        </Method>
+        <Method name="agregarDepartamentoHotel" returnType="void" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+          <Argument type="String" name="numeroPiso"/>
+          <Argument type="String" name="numeroDpto"/>
+          <Argument type="String" name="valorDpto"/>
+          <Argument type="String" name="orientacion"/>
+          <Argument type="int" name="cantidadBanos"/>
+          <Argument type="int" name="cantidadDormitorios"/>
+          <Argument type="double" name="metrosCuadrados"/>
+          <Argument type="String" name="disponibilidadDpto"/>
+          <Argument type="int" name="cantidadDiasArrendado"/>
+        </Method>
+        <Method name="agregarDepartamentoMotel" returnType="void" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+          <Argument type="String" name="numeroPiso"/>
+          <Argument type="String" name="numeroDpto"/>
+          <Argument type="String" name="valorDpto"/>
+          <Argument type="String" name="orientacion"/>
+          <Argument type="int" name="cantidadBanos"/>
+          <Argument type="int" name="cantidadDormitorios"/>
+          <Argument type="double" name="metrosCuadrados"/>
+          <Argument type="String" name="disponibilidadDpto"/>
+          <Argument type="String" name="tematica"/>
+        </Method>
+        <Method name="eliminarDepartamento" returnType="void" visibility="public"/>
+        <Method name="eliminarDepartamento" returnType="void" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+        </Method>
+        <Method name="mostrarDepartamento" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="BuscarDepartamento" returnType="boolean" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+        </Method>
+        <Method name="existeDepartamento" returnType="boolean" visibility="public"/>
+        <Method name="mostrarDptosPorPrecios" returnType="void" visibility="public">
+          <Argument type="int" name="valorInicio"/>
+          <Argument type="int" name="valorFinal"/>
+        </Method>
+        <Method name="mostrarDptosPorOrientacion" returnType="void" visibility="public">
+          <Argument type="String" name="orientacion"/>
+        </Method>
+        <Method name="existeDepartamento" returnType="boolean" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+        </Method>
+        <Method name="buscarDepartamento" returnType="Departamento" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+        </Method>
+        <Method name="buscarDepartamentoE" returnType="boolean" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+        </Method>
+        <Method name="getIdEdificio" returnType="String" visibility="public"/>
+        <Method name="getNombreEdificio" returnType="String" visibility="public"/>
+        <Method name="getLocalidadEdificio" returnType="String" visibility="public"/>
+        <Method name="getDireccionEdificio" returnType="String" visibility="public"/>
+        <Method name="getArquitectoEdificio" returnType="String" visibility="public"/>
+        <Method name="getDepartamentosId" returnType="HashMap&lt;String, Departamento&gt;" visibility="public"/>
+        <Method name="getDepartamentos" returnType="ArrayList&lt;Departamento&gt;" visibility="public"/>
+        <Method name="setIdEdificio" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="setNombreEdificio" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setLocalidadEdificio" returnType="void" visibility="public">
+          <Argument type="String" name="localidad"/>
+        </Method>
+        <Method name="setDireccionEdificio" returnType="void" visibility="public">
+          <Argument type="String" name="direccion"/>
+        </Method>
+        <Method name="setArquitectoEdificio" returnType="void" visibility="public">
+          <Argument type="String" name="arquitecto"/>
+        </Method>
+        <Method name="setDepartamentos" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Departamento&gt;" name="departamentos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Datos" package="gestioninmobilaria3" visibility="public" xPosition="22.0" yPosition="61.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarEdificio" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+          <Argument type="int" name="opcion"/>
+        </Method>
+        <Method name="agregarDepartamento" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+          <Argument type="int" name="opcion"/>
+        </Method>
+        <Method name="mostrarListadoDeEdifcios" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+          <Argument type="int" name="opcion"/>
+        </Method>
+        <Method name="mostrarTodosLosDepartamentos" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+        </Method>
+        <Method name="mostrarTodosLosDepartamentos" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+          <Argument type="int" name="opcion"/>
+        </Method>
+        <Method name="infoDisponiblidad" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+          <Argument type="int" name="opcion"/>
+        </Method>
+        <Method name="buscarDepartamento" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+        </Method>
+        <Method name="mostrarDepartamento" returnType="void" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+          <Argument type="Administrador" name="administrador"/>
+        </Method>
+        <Method name="verificacionNumerica" returnType="int" visibility="public"/>
+        <Method name="mostrarDepartamentosPorPrecios" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+        </Method>
+        <Method name="mostrarDepartamentosPorOrientacion" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+          <Argument type="String" name="orientacionDpto"/>
+        </Method>
+        <Method name="cargarDepartamentos" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+        </Method>
+        <Method name="cargarEdificios" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+        </Method>
+        <Method name="modificarNombreEdificio" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+        </Method>
+        <Method name="eliminarUnEdificio" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+        </Method>
+        <Method name="eliminarUnDepartamento" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Departamento" package="gestioninmobilaria3" visibility="public" xPosition="1133.0" yPosition="148.0">
+      <Fields>
+        <Field name="idDepartamento" type="String" visibility="private"/>
+        <Field name="numeroPiso" type="String" visibility="private"/>
+        <Field name="numeroDpto" type="String" visibility="private"/>
+        <Field name="valorDpto" type="String" visibility="private"/>
+        <Field name="orientacion" type="String" visibility="private"/>
+        <Field name="cantidadBanos" type="int" visibility="private"/>
+        <Field name="cantidadDormitorios" type="int" visibility="private"/>
+        <Field name="metrosCuadrados" type="double" visibility="private"/>
+        <Field name="disponibilidadDpto" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+          <Argument type="String" name="numeroPiso"/>
+          <Argument type="String" name="numeroDpto"/>
+          <Argument type="String" name="valorDpto"/>
+          <Argument type="String" name="orientacion"/>
+          <Argument type="int" name="cantidadBanos"/>
+          <Argument type="int" name="cantidadDormitorios"/>
+          <Argument type="double" name="metrosCuadrados"/>
+          <Argument type="String" name="disponibilidadDpto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getInfoEstadoDepartamento" returnType="String" visibility="public"/>
+        <Method name="getIdDepartamento" returnType="String" visibility="public"/>
+        <Method name="getNumeroPiso" returnType="String" visibility="public"/>
+        <Method name="getNumeroDpto" returnType="String" visibility="public"/>
+        <Method name="getValorDpto" returnType="String" visibility="public"/>
+        <Method name="getOrientacion" returnType="String" visibility="public"/>
+        <Method name="getCantidadBanos" returnType="int" visibility="public"/>
+        <Method name="getCantidadDormitorios" returnType="int" visibility="public"/>
+        <Method name="getMetrosCuadrados" returnType="double" visibility="public"/>
+        <Method name="getDisponibilidadDpto" returnType="String" visibility="public"/>
+        <Method name="setIdDepartamento" returnType="void" visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+        </Method>
+        <Method name="setNumeroPiso" returnType="void" visibility="public">
+          <Argument type="String" name="numeroPiso"/>
+        </Method>
+        <Method name="setNumeroDpto" returnType="void" visibility="public">
+          <Argument type="String" name="numeroDpto"/>
+        </Method>
+        <Method name="setValorDpto" returnType="void" visibility="public">
+          <Argument type="String" name="valorDpto"/>
+        </Method>
+        <Method name="setOrientacion" returnType="void" visibility="public">
+          <Argument type="String" name="orientacion"/>
+        </Method>
+        <Method name="setCantidadBanos" returnType="void" visibility="public">
+          <Argument type="int" name="cantidadBanos"/>
+        </Method>
+        <Method name="setCantidadDormitorios" returnType="void" visibility="public">
+          <Argument type="int" name="cantidadDormitorios"/>
+        </Method>
+        <Method name="setMetrosCuadrados" returnType="void" visibility="public">
+          <Argument type="double" name="metrosCuadrados"/>
+        </Method>
+        <Method name="setDisponibilidadDpto" returnType="void" visibility="public">
+          <Argument type="String" name="disponibilidadDpto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DepartamentoArrendado" package="gestioninmobilaria3" visibility="public" xPosition="1423.0" yPosition="186.0">
+      <Fields>
+        <Field name="cantidadDiasArrendado" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+          <Argument type="String" name="numeroPiso"/>
+          <Argument type="String" name="numeroDpto"/>
+          <Argument type="String" name="valorDpto"/>
+          <Argument type="String" name="orientacion"/>
+          <Argument type="int" name="cantidadBanos"/>
+          <Argument type="int" name="cantidadDormitorios"/>
+          <Argument type="double" name="metrosCuadrados"/>
+          <Argument type="String" name="disponibilidadDpto"/>
+          <Argument type="int" name="cantidadDiasArrendado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getInfoEstadoDepartamento" returnType="String" visibility="public"/>
+        <Method name="getCantidadDiasArriendo" returnType="int" visibility="public"/>
+        <Method name="setCantidadDiasArriendo" returnType="void" visibility="public">
+          <Argument type="int" name="cantidadDiasArriendo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DepartamentoTematica" package="gestioninmobilaria3" visibility="public" xPosition="1470.0" yPosition="522.0">
+      <Fields>
+        <Field name="tematicaDePieza" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="idDepartamento"/>
+          <Argument type="String" name="numeroPiso"/>
+          <Argument type="String" name="numeroDpto"/>
+          <Argument type="String" name="valorDpto"/>
+          <Argument type="String" name="orientacion"/>
+          <Argument type="int" name="cantidadBanos"/>
+          <Argument type="int" name="cantidadDormitorios"/>
+          <Argument type="double" name="metrosCuadrados"/>
+          <Argument type="String" name="disponibilidadDpto"/>
+          <Argument type="String" name="tematicaDePieza"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getInfoEstadoDepartamento" returnType="String" visibility="public"/>
+        <Method name="getTematicaDePieza" returnType="String" visibility="public"/>
+        <Method name="setTematicaDePieza" returnType="void" visibility="public">
+          <Argument type="String" name="tematicaDePieza"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Edificio" package="gestioninmobilaria3" visibility="public" xPosition="691.0" yPosition="903.0">
+      <Fields>
+        <Field name="nombreConserje" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="idEdificio"/>
+          <Argument type="String" name="nombreEdificio"/>
+          <Argument type="String" name="direccionEdificio"/>
+          <Argument type="String" name="localidadEdificio"/>
+          <Argument type="String" name="arquitectoEdificio"/>
+          <Argument type="String" name="nombreConserje"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarDepartamento" returnType="void" visibility="public"/>
+        <Method name="estadoDepartamento" returnType="void" visibility="public"/>
+        <Method name="getNombreConserje" returnType="String" visibility="public"/>
+        <Method name="setNombreConserje" returnType="void" visibility="public">
+          <Argument type="String" name="nombreConserje"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GenerarReporte" package="gestioninmobilaria3" visibility="public" xPosition="336.0" yPosition="733.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearReporte" returnType="void" visibility="public">
+          <Argument type="Administrador" name="administrador"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="GestionInmobilaria3" package="gestioninmobilaria3" visibility="public" xPosition="127.0" yPosition="998.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Hotel" package="gestioninmobilaria3" visibility="public" xPosition="453.0" yPosition="903.0">
+      <Fields>
+        <Field name="cantidadEstrellas" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="idEdificio"/>
+          <Argument type="String" name="nombreEdificio"/>
+          <Argument type="String" name="direccionEdificio"/>
+          <Argument type="String" name="localidadEdificio"/>
+          <Argument type="String" name="arquitectoEdificio"/>
+          <Argument type="int" name="cantidadEstrellas"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarDepartamento" returnType="void" visibility="public"/>
+        <Method name="estadoDepartamento" returnType="void" visibility="public"/>
+        <Method name="getCantidadEstrellas" returnType="int" visibility="public"/>
+        <Method name="setCantidadEstrellas" returnType="void" visibility="public">
+          <Argument type="int" name="cantidadEstrellas"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Menu" package="gestioninmobilaria3" visibility="public" xPosition="22.0" yPosition="737.0">
+      <Fields>
+        <Field name="administrador" type="Administrador" visibility="package"/>
+        <Field name="gestionDatos" type="Datos" visibility="package"/>
+        <Field name="generarReporte" type="GenerarReporte" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="menuPrincipal" returnType="void" visibility="public">
+          <Argument type="int" name="opc"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Motel" package="gestioninmobilaria3" visibility="public" xPosition="923.0" yPosition="903.0">
+      <Fields>
+        <Field name="precioXhora" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="idEdificio"/>
+          <Argument type="String" name="nombreEdificio"/>
+          <Argument type="String" name="direccionEdificio"/>
+          <Argument type="String" name="localidadEdificio"/>
+          <Argument type="String" name="arquitectoEdificio"/>
+          <Argument type="int" name="duracionEstancia"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="mostrarDepartamento" returnType="void" visibility="public"/>
+        <Method name="estadoDepartamento" returnType="void" visibility="public"/>
+        <Method name="getPrecioXHora" returnType="int" visibility="public"/>
+        <Method name="setPrecioXHora" returnType="void" visibility="public">
+          <Argument type="int" name="precioXHora"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="InformeDepartamento" package="gestioninmobilaria3" visibility="public" xPosition="1221.0" yPosition="937.0">
+      <Methods>
+        <Method name="getInfoEstadoDepartamento" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="gestioninmobilaria3.GenerarReporte" target="gestioninmobilaria3.Administrador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="gestioninmobilaria3.Hotel" target="gestioninmobilaria3.Building"/>
+    <UseRelation source="gestioninmobilaria3.Administrador" target="gestioninmobilaria3.Building" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="gestioninmobilaria3.DepartamentoTematica" target="gestioninmobilaria3.Departamento"/>
+    <HasRelation name="generarReporte" source="gestioninmobilaria3.Menu" target="gestioninmobilaria3.GenerarReporte" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="gestioninmobilaria3.DepartamentoArrendado" target="gestioninmobilaria3.Departamento"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="gestioninmobilaria3.Departamento" target="gestioninmobilaria3.InformeDepartamento"/>
+    <HasRelation name="edificiosId" source="gestioninmobilaria3.Administrador" target="gestioninmobilaria3.Building" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, Building&gt;"/>
+    <UseRelation source="gestioninmobilaria3.Building" target="gestioninmobilaria3.Departamento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="gestioninmobilaria3.Datos" target="gestioninmobilaria3.Administrador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="edificiosNombre" source="gestioninmobilaria3.Administrador" target="gestioninmobilaria3.Building" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, Building&gt;"/>
+    <HasRelation name="gestionDatos" source="gestioninmobilaria3.Menu" target="gestioninmobilaria3.Datos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="gestioninmobilaria3.Motel" target="gestioninmobilaria3.Building"/>
+    <IsRelation name="is" source="gestioninmobilaria3.Edificio" target="gestioninmobilaria3.Building"/>
+    <HasRelation name="departamentosId" source="gestioninmobilaria3.Building" target="gestioninmobilaria3.Departamento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashMap&lt;String, Departamento&gt;"/>
+    <HasRelation name="listaDepartamentos" source="gestioninmobilaria3.Building" target="gestioninmobilaria3.Departamento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Departamento&gt;"/>
+    <HasRelation name="listaEdificio" source="gestioninmobilaria3.Administrador" target="gestioninmobilaria3.Building" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Building&gt;"/>
+    <HasRelation name="administrador" source="gestioninmobilaria3.Menu" target="gestioninmobilaria3.Administrador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

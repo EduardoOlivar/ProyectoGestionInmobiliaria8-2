@@ -1,6 +1,8 @@
 
 package gestioninmobilaria3;
 
-public interface InformeDepartamento {   
+
+public interface InformeDepartamento {
     public String getInfoEstadoDepartamento();
+    
 }
